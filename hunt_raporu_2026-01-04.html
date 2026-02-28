@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haftalık Canavar Avı Raporu — 4 Ocak 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0b0e1a;
+  --bg2: #0f1322;
+  --card: #131828;
+  --border: #1e2640;
+  --accent: #3b82f6;
+  --gold: #f59e0b;
+  --green: #10b981;
+  --red: #ef4444;
+  --orange: #f97316;
+  --purple: #8b5cf6;
+  --text: #e2e8f0;
+  --muted: #64748b;
+  --dim: #94a3b8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(59,130,246,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,0.025) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+  z-index: 0;
+}
+.wrap { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; padding: 36px 20px 80px; }
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.header-left h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, #93c5fd 60%, var(--accent) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1.1;
+}
+.header-left .sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.header-right { text-align: right; }
+.date-badge {
+  display: inline-block;
+  background: rgba(59,130,246,0.12);
+  border: 1px solid rgba(59,130,246,0.3);
+  color: #93c5fd;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+/* ── Stats row ── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.stat-card .num {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-card .lbl { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+.num.blue { color: var(--accent); }
+.num.gold { color: var(--gold); }
+.num.green { color: var(--green); }
+.num.orange { color: var(--orange); }
+
+/* ── Filters ── */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  align-items: center;
+}
+.filter-bar input {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+  width: 220px;
+  transition: border-color 0.2s;
+}
+.filter-bar input:focus { border-color: var(--accent); }
+.filter-bar input::placeholder { color: var(--muted); }
+.filter-btn {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: var(--dim);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: rgba(59,130,246,0.15);
+  border-color: rgba(59,130,246,0.4);
+  color: #93c5fd;
+}
+.count-info { margin-left: auto; font-size: 12px; color: var(--muted); }
+
+/* ── Table ── */
+.table-wrap {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 700px; }
+thead th {
+  background: #0f1322;
+  padding: 12px 14px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+thead th:hover { color: var(--text); }
+thead th:first-child, thead th:nth-child(2) { text-align: left; }
+thead th.sorted { color: var(--accent); }
+thead th .sort-icon { margin-left: 4px; opacity: 0.5; }
+thead th.sorted .sort-icon { opacity: 1; }
+
+tbody tr {
+  border-bottom: 1px solid rgba(30,38,64,0.6);
+  transition: background 0.15s;
+}
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: rgba(59,130,246,0.04); }
+tbody tr.inactive { opacity: 0.45; }
+
+tbody td { padding: 11px 14px; text-align: center; color: var(--dim); }
+tbody td:first-child { text-align: center; }
+tbody td:nth-child(2) { text-align: left; font-weight: 500; color: var(--text); }
+
+/* Rank medals */
+.rank { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 14px; }
+.rank-1 { color: #fbbf24; }
+.rank-2 { color: #94a3b8; }
+.rank-3 { color: #f97316; }
+.rank-n { color: var(--muted); font-size: 12px; }
+
+/* Name cell */
+.name-cell { display: flex; align-items: center; gap: 8px; }
+.active-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(16,185,129,0.5);
+}
+.inactive-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* Total cell highlight */
+.total-val { font-weight: 600; color: var(--text); }
+.total-val.high { color: var(--gold); }
+.total-val.mid { color: #60a5fa; }
+
+/* Level cells */
+.lv { font-size: 12px; }
+.lv.zero { color: #1e2640; }
+.lv.low { color: #475569; }
+.lv.mid { color: #60a5fa; }
+.lv.high { color: var(--gold); }
+
+/* Points */
+.pts { font-weight: 600; }
+.pts.pos { color: var(--green); }
+.pts.zero { color: var(--border); }
+
+/* Mini bar */
+.bar-wrap { display: flex; align-items: center; gap: 8px; justify-content: center; }
+.bar-bg { width: 50px; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 2px; transition: width 0.3s; }
+
+/* Empty state */
+.empty { text-align: center; padding: 40px; color: var(--muted); font-size: 14px; display: none; }
+
+/* Footer */
+.footer {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-note { font-size: 11px; color: var(--muted); }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; }
+.leg-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); }
+.leg-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+@media(max-width:600px){
+  .header { flex-direction: column; align-items: flex-start; }
+  .header-right { text-align: left; }
+  .filter-bar input { width: 100%; }
+  .stats-row { grid-template-columns: repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <h1>⚔️ Haftalık Canavar Avı Raporu</h1>
+      <div class="sub">Lords Mobile · Bot Hunt İstatistikleri</div>
+    </div>
+    <div class="header-right">
+      <div class="date-badge">📅 28 Aralık 2025 — 4 Ocak 2026</div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="num blue" id="stat-total">193</div>
+      <div class="lbl">Toplam Av</div>
+    </div>
+    <div class="stat-card">
+      <div class="num green" id="stat-active">43</div>
+      <div class="lbl">Aktif Hesap</div>
+    </div>
+    <div class="stat-card">
+      <div class="num gold" id="stat-players">99</div>
+      <div class="lbl">Toplam Hesap</div>
+    </div>
+    <div class="stat-card">
+      <div class="num orange" id="stat-top">44</div>
+      <div class="lbl">En Yüksek</div>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filter-bar">
+    <input type="text" id="search" placeholder="🔍 İsim ara..." oninput="filterTable()">
+    <button class="filter-btn active" onclick="setFilter('all', this)">Tümü</button>
+    <button class="filter-btn" onclick="setFilter('active', this)">Aktif</button>
+    <button class="filter-btn" onclick="setFilter('inactive', this)">Pasif</button>
+    <span class="count-info" id="count-info">99 hesap gösteriliyor</span>
+  </div>
+
+  <!-- Table -->
+  <div class="table-wrap">
+    <table id="main-table">
+      <thead>
+        <tr>
+          <th onclick="sortTable('rank')">#<span class="sort-icon">↕</span></th>
+          <th onclick="sortTable('name')" style="text-align:left">Hesap Adı<span class="sort-icon">↕</span></th>
+          <th onclick="sortTable('total')" class="sorted">Toplam<span class="sort-icon">↓</span></th>
+          <th onclick="sortTable('hunt')">Av<span class="sort-icon">↕</span></th>
+          <th onclick="sortTable('purchase')">Satın<span class="sort-icon">↕</span></th>
+          <th onclick="sortTable('l1')">L1<span class="sort-icon">↕</span></th>
+          <th onclick="sortTable('l2')">L2<span class="sort-icon">↕</span></th>
+          <th onclick="sortTable('l3')">L3<span class="sort-icon">↕</span></th>
+          <th onclick="sortTable('l4')">L4<span class="sort-icon">↕</span></th>
+          <th onclick="sortTable('l5')">L5<span class="sort-icon">↕</span></th>
+          <th onclick="sortTable('points')">Puan<span class="sort-icon">↕</span></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div class="empty" id="empty-msg">Arama sonucu bulunamadı.</div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-note">🤖 Bot sistemi tarafından otomatik oluşturulmuştur · Veriler haftalık sıfırlanır</div>
+    <div class="legend">
+      <div class="leg-item"><div class="leg-dot" style="background:#10b981"></div> Aktif hesap</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#1e2640"></div> Pasif hesap</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#f59e0b"></div> Yüksek av (10+)</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const RAW = [{"rank":1,"name":"Anonymous","total":44,"hunt":44,"purchase":0,"l1":0,"l2":40,"l3":4,"l4":0,"l5":0,"points":52},{"rank":2,"name":"EDIZ YDK","total":6,"hunt":6,"purchase":0,"l1":0,"l2":5,"l3":1,"l4":0,"l5":0,"points":8},{"rank":3,"name":"xcyux","total":5,"hunt":5,"purchase":0,"l1":0,"l2":5,"l3":0,"l4":0,"l5":0,"points":5},{"rank":4,"name":"Grelhund","total":5,"hunt":5,"purchase":0,"l1":0,"l2":4,"l3":1,"l4":0,"l5":0,"points":7},{"rank":5,"name":"Kilmmees","total":5,"hunt":5,"purchase":0,"l1":0,"l2":4,"l3":1,"l4":0,"l5":0,"points":7},{"rank":6,"name":"Memphiss C","total":5,"hunt":5,"purchase":0,"l1":0,"l2":4,"l3":1,"l4":0,"l5":0,"points":7},{"rank":7,"name":"Palazayrel","total":5,"hunt":5,"purchase":0,"l1":0,"l2":4,"l3":1,"l4":0,"l5":0,"points":7},{"rank":8,"name":"PompeoVl","total":5,"hunt":5,"purchase":0,"l1":0,"l2":4,"l3":1,"l4":0,"l5":0,"points":7},{"rank":9,"name":"Qtuypoli","total":5,"hunt":5,"purchase":0,"l1":0,"l2":4,"l3":1,"l4":0,"l5":0,"points":7},{"rank":10,"name":"StoneOski","total":5,"hunt":5,"purchase":0,"l1":0,"l2":4,"l3":1,"l4":0,"l5":0,"points":7},{"rank":11,"name":"woodoski","total":5,"hunt":5,"purchase":0,"l1":0,"l2":4,"l3":1,"l4":0,"l5":0,"points":7},{"rank":12,"name":"6027","total":4,"hunt":4,"purchase":0,"l1":0,"l2":4,"l3":0,"l4":0,"l5":0,"points":4},{"rank":13,"name":"6674k","total":4,"hunt":4,"purchase":0,"l1":0,"l2":4,"l3":0,"l4":0,"l5":0,"points":4},{"rank":14,"name":"garnellin","total":4,"hunt":4,"purchase":0,"l1":0,"l2":4,"l3":0,"l4":0,"l5":0,"points":4},{"rank":15,"name":"Gavolt","total":4,"hunt":4,"purchase":0,"l1":0,"l2":4,"l3":0,"l4":0,"l5":0,"points":4},{"rank":16,"name":"klimax","total":4,"hunt":4,"purchase":0,"l1":0,"l2":4,"l3":0,"l4":0,"l5":0,"points":4},{"rank":17,"name":"KlyBamba","total":4,"hunt":4,"purchase":0,"l1":0,"l2":4,"l3":0,"l4":0,"l5":0,"points":4},{"rank":18,"name":"kutiyo","total":4,"hunt":4,"purchase":0,"l1":0,"l2":4,"l3":0,"l4":0,"l5":0,"points":4},{"rank":19,"name":"TalasOski","total":4,"hunt":4,"purchase":0,"l1":0,"l2":3,"l3":1,"l4":0,"l5":0,"points":6},{"rank":20,"name":"tek zar","total":4,"hunt":4,"purchase":0,"l1":0,"l2":4,"l3":0,"l4":0,"l5":0,"points":4},{"rank":21,"name":"Queenediz","total":4,"hunt":4,"purchase":0,"l1":0,"l2":4,"l3":0,"l4":0,"l5":0,"points":4},{"rank":22,"name":"SamanOski","total":4,"hunt":4,"purchase":0,"l1":0,"l2":4,"l3":0,"l4":0,"l5":0,"points":4},{"rank":23,"name":"Bank MYE","total":3,"hunt":3,"purchase":0,"l1":0,"l2":3,"l3":0,"l4":0,"l5":0,"points":3},{"rank":24,"name":"1478x","total":3,"hunt":3,"purchase":0,"l1":0,"l2":3,"l3":0,"l4":0,"l5":0,"points":3},{"rank":25,"name":"2278k","total":3,"hunt":3,"purchase":0,"l1":0,"l2":3,"l3":0,"l4":0,"l5":0,"points":3},{"rank":26,"name":"4836k","total":3,"hunt":3,"purchase":0,"l1":0,"l2":3,"l3":0,"l4":0,"l5":0,"points":3},{"rank":27,"name":"7548k","total":3,"hunt":3,"purchase":0,"l1":0,"l2":3,"l3":0,"l4":0,"l5":0,"points":3},{"rank":28,"name":"8483k","total":3,"hunt":3,"purchase":0,"l1":0,"l2":3,"l3":0,"l4":0,"l5":0,"points":3},{"rank":29,"name":"birzana","total":3,"hunt":3,"purchase":0,"l1":0,"l2":3,"l3":0,"l4":0,"l5":0,"points":3},{"rank":30,"name":"BonyClombo","total":3,"hunt":3,"purchase":0,"l1":0,"l2":3,"l3":0,"l4":0,"l5":0,"points":3},{"rank":31,"name":"FoodOski","total":3,"hunt":3,"purchase":0,"l1":0,"l2":3,"l3":0,"l4":0,"l5":0,"points":3},{"rank":32,"name":"Getty y","total":3,"hunt":3,"purchase":0,"l1":0,"l2":3,"l3":0,"l4":0,"l5":0,"points":3},{"rank":33,"name":"hyperxx","total":3,"hunt":3,"purchase":0,"l1":0,"l2":3,"l3":0,"l4":0,"l5":0,"points":3},{"rank":34,"name":"TrolKinG","total":3,"hunt":3,"purchase":0,"l1":0,"l2":3,"l3":0,"l4":0,"l5":0,"points":3},{"rank":35,"name":"xPALAx","total":3,"hunt":3,"purchase":0,"l1":0,"l2":3,"l3":0,"l4":0,"l5":0,"points":3},{"rank":36,"name":"yetig","total":3,"hunt":3,"purchase":0,"l1":0,"l2":3,"l3":0,"l4":0,"l5":0,"points":3},{"rank":37,"name":"U Fire","total":3,"hunt":3,"purchase":0,"l1":0,"l2":3,"l3":0,"l4":0,"l5":0,"points":3},{"rank":38,"name":"kefir black","total":2,"hunt":2,"purchase":0,"l1":0,"l2":2,"l3":0,"l4":0,"l5":0,"points":2},{"rank":39,"name":"StoneGoleM","total":2,"hunt":2,"purchase":0,"l1":0,"l2":2,"l3":0,"l4":0,"l5":0,"points":2},{"rank":40,"name":"tirrrik","total":2,"hunt":2,"purchase":0,"l1":0,"l2":2,"l3":0,"l4":0,"l5":0,"points":2},{"rank":41,"name":"3797k","total":1,"hunt":1,"purchase":0,"l1":0,"l2":1,"l3":0,"l4":0,"l5":0,"points":1},{"rank":42,"name":"CcCesetcC","total":1,"hunt":1,"purchase":0,"l1":0,"l2":1,"l3":0,"l4":0,"l5":0,"points":1},{"rank":43,"name":"U Disturbed","total":1,"hunt":1,"purchase":0,"l1":0,"l2":1,"l3":0,"l4":0,"l5":0,"points":1},{"rank":44,"name":"EdizBank","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":45,"name":"EGF STORE","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":46,"name":"1307k","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":47,"name":"2980k","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":48,"name":"31min","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":49,"name":"4242x","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":50,"name":"4367x","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":51,"name":"4546z","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":52,"name":"4639k","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":53,"name":"4904","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":54,"name":"6990k","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":55,"name":"alhabbi","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":56,"name":"bickbac","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":57,"name":"Bintir bien","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":58,"name":"biz biz","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":59,"name":"Brutus x","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":60,"name":"ChaosRaum","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":61,"name":"dayiinn","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":62,"name":"despo siko","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":63,"name":"dipyu","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":64,"name":"Dragon of x","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":65,"name":"dujyt","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":66,"name":"Geelyx C","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":67,"name":"GigaAxe","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":68,"name":"Greycx","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":69,"name":"gyher","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":70,"name":"HellHound C","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":71,"name":"heptikx","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":72,"name":"heykul","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":73,"name":"HydBoss","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":74,"name":"JavanaAxe","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":75,"name":"KaosMaul","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":76,"name":"kill bilo","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":77,"name":"LarcBrekar","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":78,"name":"levox","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":79,"name":"Lord ORc C","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":80,"name":"myediz","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":81,"name":"oeceg","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":82,"name":"Parazitcure","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":83,"name":"Payave","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":84,"name":"pirzana","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":85,"name":"RSx7","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":86,"name":"saabx","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":87,"name":"Tartkp","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":88,"name":"teppir","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":89,"name":"thyux","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":90,"name":"U JustWatch","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":91,"name":"U lm edz","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":92,"name":"vuseiti","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":93,"name":"witq","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":94,"name":"x6969x","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":95,"name":"xKonyalmx","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":96,"name":"biklyy","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":97,"name":"Black TaXi","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":98,"name":"KillKasma","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0},{"rank":99,"name":"Twitte","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0}];
+
+const maxTotal = Math.max(...RAW.map(p => p.total));
+let currentFilter = 'all';
+let sortKey = 'total';
+let sortAsc = false;
+let data = [...RAW];
+
+function lvClass(v) {
+  if (!v) return 'zero';
+  if (v <= 2) return 'low';
+  if (v <= 5) return 'mid';
+  return 'high';
+}
+
+function rankHtml(r) {
+  if (r === 1) return `<span class="rank rank-1">🥇</span>`;
+  if (r === 2) return `<span class="rank rank-2">🥈</span>`;
+  if (r === 3) return `<span class="rank rank-3">🥉</span>`;
+  return `<span class="rank rank-n">${r}</span>`;
+}
+
+function barHtml(val, max, color) {
+  const pct = max ? Math.round((val/max)*100) : 0;
+  return `<div class="bar-wrap"><span>${val}</span><div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div></div>`;
+}
+
+function renderTable() {
+  const tbody = document.getElementById('tbody');
+  const search = document.getElementById('search').value.toLowerCase();
+
+  let filtered = data.filter(p => {
+    const nameMatch = p.name.toLowerCase().includes(search);
+    if (currentFilter === 'active') return nameMatch && p.total > 0;
+    if (currentFilter === 'inactive') return nameMatch && p.total === 0;
+    return nameMatch;
+  });
+
+  document.getElementById('count-info').textContent = `${filtered.length} hesap gösteriliyor`;
+  document.getElementById('empty-msg').style.display = filtered.length === 0 ? 'block' : 'none';
+
+  tbody.innerHTML = filtered.map((p, i) => {
+    const isActive = p.total > 0;
+    const displayRank = isActive ? p.rank : '—';
+    const rankCell = isActive ? rankHtml(p.rank) : `<span class="rank rank-n">—</span>`;
+    const dot = isActive ? '<div class="active-dot"></div>' : '<div class="inactive-dot"></div>';
+    const totalClass = p.total >= 10 ? 'high' : p.total >= 3 ? 'mid' : '';
+    const ptsClass = p.points > 0 ? 'pos' : 'zero';
+
+    return `<tr class="${isActive ? '' : 'inactive'}">
+      <td>${rankCell}</td>
+      <td><div class="name-cell">${dot}<span>${p.name}</span></div></td>
+      <td>${barHtml(p.total, maxTotal, p.total>=10?'#f59e0b':p.total>=3?'#60a5fa':'#334155')}</td>
+      <td>${p.hunt || '<span class="lv zero">—</span>'}</td>
+      <td>${p.purchase || '<span class="lv zero">—</span>'}</td>
+      <td class="lv ${lvClass(p.l1)}">${p.l1 || '—'}</td>
+      <td class="lv ${lvClass(p.l2)}">${p.l2 || '—'}</td>
+      <td class="lv ${lvClass(p.l3)}">${p.l3 || '—'}</td>
+      <td class="lv ${lvClass(p.l4)}">${p.l4 || '—'}</td>
+      <td class="lv ${lvClass(p.l5)}">${p.l5 || '—'}</td>
+      <td class="pts ${ptsClass}">${p.points || '—'}</td>
+    </tr>`;
+  }).join('');
+}
+
+function filterTable() { renderTable(); }
+
+function setFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderTable();
+}
+
+function sortTable(key) {
+  if (sortKey === key) { sortAsc = !sortAsc; }
+  else { sortKey = key; sortAsc = key === 'name'; }
+
+  document.querySelectorAll('thead th').forEach(th => {
+    th.classList.remove('sorted');
+    const icon = th.querySelector('.sort-icon');
+    if (icon) icon.textContent = '↕';
+  });
+
+  const ths = document.querySelectorAll('thead th');
+  const keyMap = {rank:0,name:1,total:2,hunt:3,purchase:4,l1:5,l2:6,l3:7,l4:8,l5:9,points:10};
+  const idx = keyMap[key];
+  if (idx !== undefined) {
+    ths[idx].classList.add('sorted');
+    const icon = ths[idx].querySelector('.sort-icon');
+    if (icon) icon.textContent = sortAsc ? '↑' : '↓';
+  }
+
+  data.sort((a,b) => {
+    const av = a[key]; const bv = b[key];
+    if (typeof av === 'string') return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+    return sortAsc ? av - bv : bv - av;
+  });
+  renderTable();
+}
+
+renderTable();
+</script>
+</body>
+</html>
