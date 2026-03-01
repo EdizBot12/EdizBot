@@ -1,0 +1,47 @@
+{
+  "guild": {
+    "name": "XsX",
+    "fullName": "Echoes of Xeno",
+    "guildColor": "#8b5cf6"
+  },
+  "week": {
+    "startDate": "2026-02-17",
+    "endDate": "2026-02-23"
+  },
+  "stats": {
+    "totalHunts": 2795,
+    "activePlayers": 22,
+    "totalPlayers": 28,
+    "maxIndividual": 156
+  },
+  "hunts": [
+    {"name": "PhantomX", "total": 156, "hunt": 140, "purchase": 16, "l1": 0, "l2": 92, "l3": 32, "l4": 0, "l5": 0, "points": 218, "rank": 1},
+    {"name": "EchoMaster", "total": 142, "hunt": 128, "purchase": 14, "l1": 0, "l2": 82, "l3": 28, "l4": 0, "l5": 0, "points": 192, "rank": 2},
+    {"name": "XenoSlayer", "total": 135, "hunt": 122, "purchase": 13, "l1": 0, "l2": 75, "l3": 25, "l4": 0, "l5": 0, "points": 175, "rank": 3},
+    {"name": "VortexKing", "total": 118, "hunt": 106, "purchase": 12, "l1": 0, "l2": 65, "l3": 18, "l4": 0, "l5": 0, "points": 148, "rank": 4},
+    {"name": "ShadowEcho", "total": 105, "hunt": 95, "purchase": 10, "l1": 0, "l2": 58, "l3": 15, "l4": 0, "l5": 0, "points": 130, "rank": 5},
+    {"name": "VoidEchos", "total": 88, "hunt": 79, "purchase": 9, "l1": 0, "l2": 48, "l3": 12, "l4": 0, "l5": 0, "points": 108, "rank": 6},
+    {"name": "EchoStrike", "total": 72, "hunt": 65, "purchase": 7, "l1": 0, "l2": 40, "l3": 9, "l4": 0, "l5": 0, "points": 88, "rank": 7},
+    {"name": "NovaEcho", "total": 58, "hunt": 52, "purchase": 6, "l1": 0, "l2": 32, "l3": 6, "l4": 0, "l5": 0, "points": 70, "rank": 8},
+    {"name": "MysticEcho", "total": 45, "hunt": 40, "purchase": 5, "l1": 0, "l2": 25, "l3": 4, "l4": 0, "l5": 0, "points": 54, "rank": 9},
+    {"name": "PureEcho", "total": 36, "hunt": 32, "purchase": 4, "l1": 0, "l2": 20, "l3": 3, "l4": 0, "l5": 0, "points": 43, "rank": 10},
+    {"name": "CrimsonEcho", "total": 28, "hunt": 25, "purchase": 3, "l1": 0, "l2": 15, "l3": 2, "l4": 0, "l5": 0, "points": 33, "rank": 11},
+    {"name": "VioletEcho", "total": 22, "hunt": 19, "purchase": 3, "l1": 0, "l2": 12, "l3": 1, "l4": 0, "l5": 0, "points": 25, "rank": 12},
+    {"name": "GoldenEcho", "total": 16, "hunt": 14, "purchase": 2, "l1": 0, "l2": 9, "l3": 1, "l4": 0, "l5": 0, "points": 18, "rank": 13},
+    {"name": "SilverEcho", "total": 12, "hunt": 10, "purchase": 2, "l1": 0, "l2": 6, "l3": 0, "l4": 0, "l5": 0, "points": 12, "rank": 14},
+    {"name": "BronzeEcho", "total": 8, "hunt": 7, "purchase": 1, "l1": 0, "l2": 4, "l3": 0, "l4": 0, "l5": 0, "points": 8, "rank": 15},
+    {"name": "IronEcho", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 16},
+    {"name": "SteelEcho", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 17},
+    {"name": "PlasmaEcho", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 18},
+    {"name": "ThunderEcho", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 19},
+    {"name": "FrostEcho", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 20},
+    {"name": "FlameEcho", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 21},
+    {"name": "NatureEcho", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 22},
+    {"name": "OceanEcho", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 23},
+    {"name": "DesertEcho", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 24},
+    {"name": "SkyEcho", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 25},
+    {"name": "StarEcho", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 26},
+    {"name": "MoonEcho", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 27},
+    {"name": "SunEcho", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 28}
+  ]
+}

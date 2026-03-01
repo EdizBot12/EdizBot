@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MhR — Haftalık Hunt Raporu · 2026-02-23 – 2026-03-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0e1a;--bg2:#0f1322;--card:#131828;--border:#1e2640;--accent:#3b82f6;--gold:#f59e0b;--green:#10b981;--orange:#f97316;--text:#e2e8f0;--muted:#64748b;--dim:#94a3b8;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(59,130,246,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.025) 1px,transparent 1px);background-size:36px 36px;pointer-events:none;z-index:0;}
+.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:36px 20px 80px;}
+.header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid var(--border);}
+.header-left{display:flex;align-items:center;gap:14px;}
+.guild-badge{background:linear-gradient(135deg,#1e3a5f,#1e2d4f);border:1px solid rgba(59,130,246,0.4);border-radius:10px;padding:10px 16px;text-align:center;}
+.guild-badge .guild-name{font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color:#93c5fd;line-height:1;}
+.guild-badge .guild-label{font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+.header-titles h1{font-family:'Rajdhani',sans-serif;font-size:1.6rem;font-weight:700;background:linear-gradient(135deg,#fff 0%,#93c5fd 60%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.header-titles .sub{font-size:12px;color:var(--muted);margin-top:5px;letter-spacing:1px;text-transform:uppercase;}
+.date-badge{display:inline-block;background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.3);color:#93c5fd;font-size:12px;font-weight:600;letter-spacing:1px;padding:6px 14px;border-radius:6px;}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:24px;}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;}
+.stat-card .num{font-family:'Rajdhani',sans-serif;font-size:2rem;font-weight:700;line-height:1;margin-bottom:3px;}
+.stat-card .lbl{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+.num.blue{color:var(--accent);} .num.gold{color:var(--gold);} .num.green{color:var(--green);} .num.orange{color:var(--orange);}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center;}
+.filter-bar input{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 14px;color:var(--text);font-size:13px;outline:none;width:200px;transition:border-color 0.2s;}
+.filter-bar input:focus{border-color:var(--accent);}
+.filter-bar input::placeholder{color:var(--muted);}
+.filter-btn{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 14px;color:var(--dim);font-size:12px;font-weight:500;cursor:pointer;transition:all 0.2s;}
+.filter-btn:hover,.filter-btn.active{background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);color:#93c5fd;}
+.count-info{margin-left:auto;font-size:12px;color:var(--muted);}
+.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:720px;}
+thead th{background:#0f1322;padding:11px 13px;text-align:center;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);cursor:pointer;user-select:none;white-space:nowrap;transition:color 0.2s;}
+thead th:hover{color:var(--text);}
+thead th:nth-child(2){text-align:left;}
+thead th.sorted{color:var(--accent);}
+tbody tr{border-bottom:1px solid rgba(30,38,64,0.6);transition:background 0.15s;}
+tbody tr:last-child{border-bottom:none;}
+tbody tr:hover{background:rgba(59,130,246,0.04);}
+tbody tr.inactive{opacity:0.4;}
+tbody td{padding:10px 13px;text-align:center;color:var(--dim);}
+tbody td:nth-child(2){text-align:left;font-weight:500;color:var(--text);}
+.rank{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;}
+.rank-1{color:#fbbf24;} .rank-2{color:#94a3b8;} .rank-3{color:#f97316;} .rank-n{color:var(--muted);font-size:12px;}
+.name-cell{display:flex;align-items:center;gap:8px;}
+.active-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;box-shadow:0 0 6px rgba(16,185,129,0.5);}
+.inactive-dot{width:6px;height:6px;border-radius:50%;background:var(--border);flex-shrink:0;}
+.bar-wrap{display:flex;align-items:center;gap:7px;justify-content:center;}
+.bar-bg{width:48px;height:4px;background:var(--border);border-radius:2px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:2px;}
+.lv.zero{color:#1e2640;} .lv.low{color:#475569;} .lv.mid{color:#60a5fa;} .lv.high{color:var(--gold);}
+.pts.pos{color:var(--green);font-weight:600;} .pts.zero{color:var(--border);}
+.footer{margin-top:28px;padding-top:18px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-note{font-size:11px;color:var(--muted);}
+.legend{display:flex;gap:14px;flex-wrap:wrap;}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);}
+.leg-dot{width:8px;height:8px;border-radius:50%;}
+@media(max-width:600px){.header{flex-direction:column;align-items:flex-start;} .stats-row{grid-template-columns:repeat(2,1fr);} .filter-bar input{width:100%;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="header-left">
+      <div class="guild-badge">
+        <div class="guild-name">MhR</div>
+        <div class="guild-label">Lonca</div>
+      </div>
+      <div class="header-titles">
+        <h1>⚔️ Haftalık Hunt Raporu</h1>
+        <div class="sub">Lords Mobile · Bot Canavar Avı İstatistikleri</div>
+      </div>
+    </div>
+    <div><div class="date-badge">📅 2026-02-23 – 2026-03-01</div></div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="num blue">2145</div><div class="lbl">Toplam Av</div></div>
+    <div class="stat-card"><div class="num green">28</div><div class="lbl">Aktif Hesap</div></div>
+    <div class="stat-card"><div class="num gold">35</div><div class="lbl">Toplam Hesap</div></div>
+    <div class="stat-card"><div class="num orange">145</div><div class="lbl">En Yüksek</div></div>
+  </div>
+  <div class="filter-bar">
+    <input type="text" id="search" placeholder="🔍 İsim ara..." oninput="renderTable()">
+    <button class="filter-btn active" onclick="setFilter('all',this)">Tümü</button>
+    <button class="filter-btn" onclick="setFilter('active',this)">Aktif</button>
+    <button class="filter-btn" onclick="setFilter('inactive',this)">Pasif</button>
+    <span class="count-info" id="count-info">35 hesap gösteriliyor</span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortTable('rank')"># ↕</th>
+          <th onclick="sortTable('name')" style="text-align:left">Hesap Adı ↕</th>
+          <th onclick="sortTable('total')" class="sorted">Toplam ↓</th>
+          <th onclick="sortTable('hunt')">Av ↕</th>
+          <th onclick="sortTable('purchase')">Satın ↕</th>
+          <th onclick="sortTable('l1')">L1 ↕</th>
+          <th onclick="sortTable('l2')">L2 ↕</th>
+          <th onclick="sortTable('l3')">L3 ↕</th>
+          <th onclick="sortTable('l4')">L4 ↕</th>
+          <th onclick="sortTable('l5')">L5 ↕</th>
+          <th onclick="sortTable('points')">Puan ↕</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div style="text-align:center;padding:40px;color:var(--muted);font-size:14px;display:none" id="empty-msg">Sonuç bulunamadı.</div>
+  </div>
+  <div class="footer">
+    <div class="footer-note">🤖 MhR Loncası · Bot sistemi otomatik raporu · Veriler haftalık sıfırlanır</div>
+    <div class="legend">
+      <div class="leg-item"><div class="leg-dot" style="background:#10b981"></div>Aktif</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#1e2640"></div>Pasif</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#f59e0b"></div>Yüksek (30+)</div>
+    </div>
+  </div>
+</div>
+<script>
+const RAW=[{"name":"ÖzcanYT","total":145,"hunt":128,"purchase":17,"l1":0,"l2":85,"l3":28,"l4":0,"l5":0,"points":187,"rank":1},{"name":"AlperenX","total":138,"hunt":123,"purchase":15,"l1":0,"l2":80,"l3":25,"l4":0,"l5":0,"points":178,"rank":2},{"name":"SilaYT","total":125,"hunt":112,"purchase":13,"l1":0,"l2":70,"l3":20,"l4":0,"l5":0,"points":158,"rank":3},{"name":"TanerKing","total":98,"hunt":88,"purchase":10,"l1":0,"l2":55,"l3":15,"l4":0,"l5":0,"points":125,"rank":4},{"name":"CerrahAvci","total":87,"hunt":78,"purchase":9,"l1":0,"l2":48,"l3":12,"l4":0,"l5":0,"points":110,"rank":5},{"name":"PhantomX","total":76,"hunt":68,"purchase":8,"l1":0,"l2":42,"l3":10,"l4":0,"l5":0,"points":95,"rank":6},{"name":"VoidSlayer","total":65,"hunt":58,"purchase":7,"l1":0,"l2":35,"l3":8,"l4":0,"l5":0,"points":80,"rank":7},{"name":"NinjaStrike","total":54,"hunt":48,"purchase":6,"l1":0,"l2":30,"l3":6,"l4":0,"l5":0,"points":65,"rank":8},{"name":"ShadowNova","total":42,"hunt":37,"purchase":5,"l1":0,"l2":22,"l3":4,"l4":0,"l5":0,"points":50,"rank":9},{"name":"IceBreaker","total":38,"hunt":34,"purchase":4,"l1":0,"l2":20,"l3":3,"l4":0,"l5":0,"points":45,"rank":10},{"name":"FireShield","total":28,"hunt":25,"purchase":3,"l1":0,"l2":15,"l3":2,"l4":0,"l5":0,"points":32,"rank":11},{"name":"ThunderBolt","total":24,"hunt":21,"purchase":3,"l1":0,"l2":12,"l3":1,"l4":0,"l5":0,"points":28,"rank":12},{"name":"WindMaster","total":19,"hunt":17,"purchase":2,"l1":0,"l2":10,"l3":1,"l4":0,"l5":0,"points":22,"rank":13},{"name":"EarthSmash","total":15,"hunt":13,"purchase":2,"l1":0,"l2":8,"l3":0,"l4":0,"l5":0,"points":16,"rank":14},{"name":"LavaFlow","total":12,"hunt":10,"purchase":2,"l1":0,"l2":6,"l3":0,"l4":0,"l5":0,"points":12,"rank":15},{"name":"FrostByte","total":8,"hunt":7,"purchase":1,"l1":0,"l2":4,"l3":0,"l4":0,"l5":0,"points":8,"rank":16},{"name":"SteelWolf","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":17},{"name":"SilentHunter","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":18},{"name":"DarkRaven","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":19},{"name":"MoonWalker","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":20},{"name":"StarLight","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":21},{"name":"SunBurst","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":22},{"name":"MysticForce","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":23},{"name":"NovaFlash","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":24},{"name":"CrimsonBlade","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":25},{"name":"VioletEye","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":26},{"name":"GoldenSword","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":27},{"name":"SilverShield","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":28},{"name":"BronzeLion","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":29},{"name":"IronFist","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":30},{"name":"SteelHeart","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":31},{"name":"AztecWolf","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":32},{"name":"OdinJoker","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":33},{"name":"ReaperGod","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":34},{"name":"DeathsKnight","total":0,"hunt":0,"purchase":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0,"points":0,"rank":35}];
+const maxTotal=145;
+let currentFilter='all',sortKey='total',sortAsc=false,data=[...RAW];
+function lvClass(v){if(!v)return'zero';if(v<=3)return'low';if(v<=10)return'mid';return'high';}
+function rankHtml(r,active){
+  if(!active)return'<span class="rank rank-n">—</span>';
+  if(r===1)return'<span class="rank rank-1">🥇</span>';
+  if(r===2)return'<span class="rank rank-2">🥈</span>';
+  if(r===3)return'<span class="rank rank-3">🥉</span>';
+  return'<span class="rank rank-n">'+r+'</span>';
+}
+function barHtml(val,max,color){
+  const pct=max?Math.round((val/max)*100):0;
+  return'<div class="bar-wrap"><span>'+val+'</span><div class="bar-bg"><div class="bar-fill" style="width:'+pct+'%;background:'+color+'"></div></div></div>';
+}
+function renderTable(){
+  const tbody=document.getElementById('tbody');
+  const search=document.getElementById('search').value.toLowerCase();
+  let filtered=data.filter(p=>{
+    const m=p.name.toLowerCase().includes(search);
+    if(currentFilter==='active')return m&&p.total>0;
+    if(currentFilter==='inactive')return m&&p.total===0;
+    return m;
+  });
+  document.getElementById('count-info').textContent=filtered.length+' hesap gösteriliyor';
+  document.getElementById('empty-msg').style.display=filtered.length===0?'block':'none';
+  tbody.innerHTML=filtered.map(p=>{
+    const active=p.total>0;
+    const dot=active?'<div class="active-dot"></div>':'<div class="inactive-dot"></div>';
+    const barColor=p.total>=30?'#f59e0b':p.total>=10?'#60a5fa':'#334155';
+    return'<tr class="'+(active?'':'inactive')+'"><td>'+rankHtml(p.rank,active)+'</td><td><div class="name-cell">'+dot+'<span>'+p.name+'</span></div></td><td>'+barHtml(p.total,maxTotal,barColor)+'</td><td>'+(p.hunt||'<span class="lv zero">—</span>')+'</td><td>'+(p.purchase||'<span class="lv zero">—</span>')+'</td><td class="lv '+lvClass(p.l1)+'">'+(p.l1||'—')+'</td><td class="lv '+lvClass(p.l2)+'">'+(p.l2||'—')+'</td><td class="lv '+lvClass(p.l3)+'">'+(p.l3||'—')+'</td><td class="lv '+lvClass(p.l4)+'">'+(p.l4||'—')+'</td><td class="lv '+lvClass(p.l5)+'">'+(p.l5||'—')+'</td><td class="pts '+(p.points>0?'pos':'zero')+'">'+(p.points||'—')+'</td></tr>';
+  }).join('');
+}
+function setFilter(f,btn){
+  currentFilter=f;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderTable();
+}
+function sortTable(key){
+  if(sortKey===key){sortAsc=!sortAsc;}else{sortKey=key;sortAsc=key==='name';}
+  data.sort((a,b)=>{
+    const av=a[key],bv=b[key];
+    if(typeof av==='string')return sortAsc?av.localeCompare(bv):bv.localeCompare(av);
+    return sortAsc?av-bv:bv-av;
+  });
+  renderTable();
+}
+renderTable();
+</script>
+</body>
+</html>

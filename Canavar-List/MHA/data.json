@@ -1,0 +1,47 @@
+{
+  "guild": {
+    "name": "MHA",
+    "fullName": "Mykethos Hanedanı",
+    "guildColor": "#ef4444"
+  },
+  "week": {
+    "startDate": "2026-02-17",
+    "endDate": "2026-02-23"
+  },
+  "stats": {
+    "totalHunts": 1645,
+    "activePlayers": 19,
+    "totalPlayers": 27,
+    "maxIndividual": 112
+  },
+  "hunts": [
+    {"name": "MythosKing", "total": 112, "hunt": 100, "purchase": 12, "l1": 0, "l2": 68, "l3": 19, "l4": 0, "l5": 0, "points": 148, "rank": 1},
+    {"name": "LegendarySage", "total": 102, "hunt": 91, "purchase": 11, "l1": 0, "l2": 62, "l3": 17, "l4": 0, "l5": 0, "points": 132, "rank": 2},
+    {"name": "AncientWizard", "total": 92, "hunt": 82, "purchase": 10, "l1": 0, "l2": 56, "l3": 15, "l4": 0, "l5": 0, "points": 118, "rank": 3},
+    {"name": "EternalBard", "total": 81, "hunt": 72, "purchase": 9, "l1": 0, "l2": 49, "l3": 13, "l4": 0, "l5": 0, "points": 104, "rank": 4},
+    {"name": "ShadowOracle", "total": 68, "hunt": 61, "purchase": 7, "l1": 0, "l2": 41, "l3": 11, "l4": 0, "l5": 0, "points": 85, "rank": 5},
+    {"name": "CrimsonPhantom", "total": 58, "hunt": 52, "purchase": 6, "l1": 0, "l2": 35, "l3": 9, "l4": 0, "l5": 0, "points": 71, "rank": 6},
+    {"name": "VeilCaster", "total": 46, "hunt": 41, "purchase": 5, "l1": 0, "l2": 27, "l3": 7, "l4": 0, "l5": 0, "points": 56, "rank": 7},
+    {"name": "RuneSeeker", "total": 36, "hunt": 32, "purchase": 4, "l1": 0, "l2": 21, "l3": 5, "l4": 0, "l5": 0, "points": 43, "rank": 8},
+    {"name": "ArchmageBlaze", "total": 28, "hunt": 25, "purchase": 3, "l1": 0, "l2": 16, "l3": 3, "l4": 0, "l5": 0, "points": 33, "rank": 9},
+    {"name": "ElementalForce", "total": 22, "hunt": 19, "purchase": 3, "l1": 0, "l2": 12, "l3": 2, "l4": 0, "l5": 0, "points": 25, "rank": 10},
+    {"name": "MysticDancer", "total": 16, "hunt": 14, "purchase": 2, "l1": 0, "l2": 9, "l3": 1, "l4": 0, "l5": 0, "points": 18, "rank": 11},
+    {"name": "SpiritCaller", "total": 12, "hunt": 10, "purchase": 2, "l1": 0, "l2": 6, "l3": 1, "l4": 0, "l5": 0, "points": 13, "rank": 12},
+    {"name": "SwiftRogue", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 13},
+    {"name": "FalconEye", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 14},
+    {"name": "HawkStrike", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 15},
+    {"name": "EagleAssault", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 16},
+    {"name": "RavenWhisper", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 17},
+    {"name": "OwlMuse", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 18},
+    {"name": "PhoenixRise", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 19},
+    {"name": "DragonScale", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 20},
+    {"name": "WyvernFlight", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 21},
+    {"name": "GriffinPower", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 22},
+    {"name": "HydraWrath", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 23},
+    {"name": "ManticoreRage", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 24},
+    {"name": "LeviathanDeep", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 25},
+    {"name": "CerberusFang", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 26},
+    {"name": "ChimeraForm", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 27},
+    {"name": "MedusaSight", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 28}
+  ]
+}
