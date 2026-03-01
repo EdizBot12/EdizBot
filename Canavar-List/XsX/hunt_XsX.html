@@ -2,173 +2,205 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XsX — Haftalık Hunt Raporu · 2026-02-23</title>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>XsX — Haftalık Av Raporu</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0e1a;--bg2:#0f1322;--card:#131828;--border:#1e2640;--accent:#3b82f6;--gold:#f59e0b;--green:#10b981;--orange:#f97316;--text:#e2e8f0;--muted:#64748b;--dim:#94a3b8;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;}
-body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(59,130,246,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.025) 1px,transparent 1px);background-size:36px 36px;pointer-events:none;z-index:0;}
-.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:36px 20px 80px;}
-.header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid var(--border);}
-.header-left{display:flex;align-items:center;gap:14px;}
-.guild-badge{background:linear-gradient(135deg,#1e3a5f,#1e2d4f);border:1px solid rgba(59,130,246,0.4);border-radius:10px;padding:10px 16px;text-align:center;}
-.guild-badge .guild-name{font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color:#93c5fd;line-height:1;}
-.guild-badge .guild-label{font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
-.header-titles h1{font-family:'Rajdhani',sans-serif;font-size:1.6rem;font-weight:700;background:linear-gradient(135deg,#fff 0%,#93c5fd 60%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.header-titles .sub{font-size:12px;color:var(--muted);margin-top:5px;letter-spacing:1px;text-transform:uppercase;}
-.date-badge{display:inline-block;background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.3);color:#93c5fd;font-size:12px;font-weight:600;letter-spacing:1px;padding:6px 14px;border-radius:6px;}
-.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:24px;}
-.stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;}
-.stat-card .num{font-family:'Rajdhani',sans-serif;font-size:2rem;font-weight:700;line-height:1;margin-bottom:3px;}
-.stat-card .lbl{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
-.num.blue{color:var(--accent);}.num.gold{color:var(--gold);}.num.green{color:var(--green);}.num.orange{color:var(--orange);}
-.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center;}
-.filter-bar input{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 14px;color:var(--text);font-size:13px;outline:none;width:200px;transition:border-color 0.2s;}
-.filter-bar input:focus{border-color:var(--accent);}
-.filter-bar input::placeholder{color:var(--muted);}
-.filter-btn{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 14px;color:var(--dim);font-size:12px;font-weight:500;cursor:pointer;transition:all 0.2s;}
-.filter-btn:hover,.filter-btn.active{background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);color:#93c5fd;}
-.count-info{margin-left:auto;font-size:12px;color:var(--muted);}
-.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;overflow-x:auto;}
-table{width:100%;border-collapse:collapse;font-size:13px;min-width:720px;}
-thead th{background:#0f1322;padding:11px 13px;text-align:center;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);cursor:pointer;user-select:none;white-space:nowrap;transition:color 0.2s;}
-thead th:hover{color:var(--text);}
-thead th:nth-child(2){text-align:left;}
-thead th.sorted{color:var(--accent);}
-tbody tr{border-bottom:1px solid rgba(30,38,64,0.6);transition:background 0.15s;}
-tbody tr:last-child{border-bottom:none;}
-tbody tr:hover{background:rgba(59,130,246,0.04);}
-tbody tr.inactive{opacity:0.4;}
-tbody td{padding:10px 13px;text-align:center;color:var(--dim);}
-tbody td:nth-child(2){text-align:left;font-weight:500;color:var(--text);}
-.rank{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;}
-.rank-1{color:#fbbf24;}.rank-2{color:#94a3b8;}.rank-3{color:#f97316;}.rank-n{color:var(--muted);font-size:12px;}
-.name-cell{display:flex;align-items:center;gap:8px;}
-.active-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;box-shadow:0 0 6px rgba(16,185,129,0.5);}
-.inactive-dot{width:6px;height:6px;border-radius:50%;background:var(--border);flex-shrink:0;}
-.bar-wrap{display:flex;align-items:center;gap:7px;justify-content:center;}
-.bar-bg{width:48px;height:4px;background:var(--border);border-radius:2px;overflow:hidden;}
-.bar-fill{height:100%;border-radius:2px;}
-.lv.zero{color:#1e2640;}.lv.low{color:#475569;}.lv.mid{color:#60a5fa;}.lv.high{color:var(--gold);}
-.pts.pos{color:var(--green);font-weight:600;}.pts.zero{color:var(--border);}
-.footer{margin-top:28px;padding-top:18px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.footer-note{font-size:11px;color:var(--muted);}
-.legend{display:flex;gap:14px;flex-wrap:wrap;}
-.leg-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);}
-.leg-dot{width:8px;height:8px;border-radius:50%;}
-@media(max-width:600px){.header{flex-direction:column;align-items:flex-start;}.stats-row{grid-template-columns:repeat(2,1fr);}.filter-bar input{width:100%;}}
+:root{--bg:#0b0e1a;--card:#131828;--card2:#161d30;--border:#1e2640;--accent:#3b82f6;--gold:#f59e0b;--green:#10b981;--purple:#8b5cf6;--text:#e2e8f0;--muted:#64748b;--dim:#94a3b8;}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;}
+.hero{background:linear-gradient(160deg,#0d1b3e 0%,#0b0e1a 60%);padding:28px 20px 24px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(59,130,246,0.12) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(139,92,246,0.08) 0%,transparent 50%);}
+.hero-content{position:relative;z-index:1;}
+.hero-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px;}
+.guild-emblem{background:linear-gradient(135deg,rgba(59,130,246,0.2),rgba(139,92,246,0.15));border:1px solid rgba(59,130,246,0.4);border-radius:14px;padding:10px 18px;}
+.ge-name{font-family:'Rajdhani',sans-serif;font-size:1.6rem;font-weight:700;color:#fff;line-height:1;}
+.ge-sub{font-size:10px;color:#93c5fd;letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+.date-badge{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:6px 10px;font-size:11px;color:var(--dim);text-align:right;}
+.db-lbl{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;}
+.hero-title{font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:4px;}
+.hero-sub{font-size:12px;color:var(--dim);margin-bottom:16px;}
+.podium{display:flex;gap:8px;}
+.pod{flex:1;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:10px 8px;text-align:center;}
+.pod.p1{border-color:rgba(251,191,36,0.4);background:rgba(251,191,36,0.06);}.pod.p2{border-color:rgba(148,163,184,0.3);background:rgba(148,163,184,0.04);}.pod.p3{border-color:rgba(249,115,22,0.3);background:rgba(249,115,22,0.04);}
+.pod-medal{font-size:1.2rem;margin-bottom:4px;}
+.pod-name{font-size:11px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:4px;}
+.pod-pts{font-family:'Rajdhani',sans-serif;font-size:1.1rem;font-weight:700;}
+.p1 .pod-pts{color:#fbbf24;}.p2 .pod-pts{color:#94a3b8;}.p3 .pod-pts{color:#f97316;}
+.pod-lbl{font-size:9px;color:var(--muted);text-transform:uppercase;}
+.sticky{position:sticky;top:0;z-index:100;background:#0c0f1c;border-bottom:1px solid var(--border);}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:10px 16px 8px;}
+.stat{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:7px 4px;text-align:center;}
+.stat .n{font-family:'Rajdhani',sans-serif;font-size:1.2rem;font-weight:700;line-height:1;}
+.stat .l{font-size:9px;color:var(--muted);text-transform:uppercase;margin-top:2px;}
+.cb{color:var(--accent);}.cg{color:var(--green);}.co{color:var(--gold);}.cp{color:var(--purple);}
+.search-bar{padding:0 16px 8px;}
+.search-bar input{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:9px 14px;color:var(--text);font-size:14px;outline:none;}
+.search-bar input::placeholder{color:var(--muted);}
+.filters{display:flex;gap:6px;padding:0 16px 8px;overflow-x:auto;scrollbar-width:none;}
+.filters::-webkit-scrollbar{display:none;}
+.fb{background:transparent;border:1px solid var(--border);border-radius:16px;padding:5px 14px;color:var(--dim);font-size:12px;cursor:pointer;white-space:nowrap;}
+.fb.active{background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);color:#93c5fd;}
+.ci{font-size:11px;color:var(--muted);padding:4px 16px 6px;}
+.col-head{display:grid;grid-template-columns:30px 1fr 50px 50px 50px;gap:4px;padding:6px 16px;background:#0a0d18;border-bottom:1px solid var(--border);}
+.ch{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;text-align:center;}
+.ch:nth-child(2){text-align:left;}.ch.hl{color:var(--purple);font-weight:700;}
+.player-list{padding:0;}
+.pitem{border-bottom:1px solid rgba(30,38,64,0.6);}
+.pitem.inactive{opacity:0.3;}
+.prow{display:grid;grid-template-columns:30px 1fr 50px 50px 50px;gap:4px;align-items:center;padding:9px 16px;cursor:pointer;transition:background 0.15s;}
+.prow:active{background:rgba(59,130,246,0.06);}
+.rank-box{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;}
+.r1{background:rgba(251,191,36,0.12);color:#fbbf24;}.r2{background:rgba(148,163,184,0.1);color:#94a3b8;}.r3{background:rgba(249,115,22,0.1);color:#f97316;}
+.rn{color:var(--muted);font-size:11px;text-align:center;width:26px;}
+.name-col{min-width:0;}
+.pname{font-size:13px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:5px;}
+.adot{width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;box-shadow:0 0 5px rgba(16,185,129,0.5);}
+.idot{width:5px;height:5px;border-radius:50%;background:var(--border);flex-shrink:0;}
+.pbar{height:2px;background:var(--border);border-radius:2px;margin-top:4px;overflow:hidden;}
+.pbar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#8B6914,#c9a84c,#e8cc7a,#c9a84c);}
+.val{font-size:13px;font-weight:600;text-align:center;}
+.v-pts{color:var(--purple);}.v-dim{color:var(--dim);}
+
+/* DETAY */
+.detail{display:none;background:var(--card2);border-top:1px solid var(--border);padding:10px 16px 12px;}
+.detail.open{display:block;animation:sd 0.15s ease;}
+@keyframes sd{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
+/* Üst 4 kutu */
+.d4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:6px;}
+.dbox{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:7px 4px;text-align:center;}
+.dl{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;}
+.dv{font-size:14px;font-weight:700;line-height:1;}
+
+/* Alt 5 kutu — S1-S5 YAN YANA */
+.d5{display:flex;gap:4px;}
+.sbox{flex:1;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:6px 2px;text-align:center;min-width:0;}
+.sl{font-size:9px;color:var(--muted);text-transform:uppercase;margin-bottom:2px;}
+.sv{font-size:13px;font-weight:700;line-height:1;}
+
+.dv-pts{color:var(--purple);}.dv-tot{color:var(--text);}.dv-purch{color:var(--accent);}
+.dv-s1{color:#475569;}.dv-s2{color:#60a5fa;}.dv-s3{color:#34d399;}.dv-s4{color:var(--green);}.dv-s5{color:var(--gold);}
+.detail-divider{border:none;border-top:1px solid var(--border);margin:6px 0;}
+
+.ediz-ad{background:linear-gradient(135deg,#0d1b3e 0%,#13102a 100%);border-top:1px solid rgba(59,130,246,0.2);padding:20px;position:relative;overflow:hidden;}
+.ediz-ad::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 90% 50%,rgba(139,92,246,0.12) 0%,transparent 60%);}
+.ediz-content{position:relative;z-index:1;}
+.ediz-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.35);border-radius:20px;padding:4px 12px;font-size:10px;color:#c4b5fd;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;}
+.ediz-title{font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:6px;}
+.ediz-title span{color:#93c5fd;}
+.ediz-desc{font-size:12px;color:var(--dim);line-height:1.6;margin-bottom:14px;}
+.ediz-desc strong{color:var(--text);}
+.ediz-proof{background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:8px;padding:8px 12px;font-size:11px;color:#6ee7b7;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
+.ediz-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#25d366,#1da851);border:none;border-radius:12px;padding:14px 20px;color:#fff;font-size:15px;font-weight:600;text-decoration:none;width:100%;box-shadow:0 4px 20px rgba(37,211,102,0.3);}
+.ediz-fine{font-size:10px;color:var(--muted);text-align:center;margin-top:8px;}
+.empty{text-align:center;padding:40px;color:var(--muted);display:none;}
+.footer{padding:16px;text-align:center;font-size:10px;color:var(--muted);border-top:1px solid var(--border);}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="header">
-    <div class="header-left">
-      <div class="guild-badge">
-        <div class="guild-name">XsX</div>
-        <div class="guild-label">Lonca</div>
-      </div>
-      <div class="header-titles">
-        <h1>⚔️ Haftalık Hunt Raporu</h1>
-        <div class="sub">Lords Mobile · Bot Canavar Avı İstatistikleri</div>
-      </div>
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-top">
+      <div class="guild-emblem"><div class="ge-name">XsX</div><div class="ge-sub">Lonca · Lords Mobile</div></div>
+      <div class="date-badge"><div class="db-lbl">Hafta</div><div>17–23 Şubat 2026</div></div>
     </div>
-    <div><div class="date-badge">📅 17 – 23 Şubat 2026</div></div>
-  </div>
-  <div class="stats-row">
-    <div class="stat-card"><div class="num blue">2795</div><div class="lbl">Toplam Av</div></div>
-    <div class="stat-card"><div class="num green">87</div><div class="lbl">Aktif Hesap</div></div>
-    <div class="stat-card"><div class="num gold">94</div><div class="lbl">Toplam Hesap</div></div>
-    <div class="stat-card"><div class="num orange">80</div><div class="lbl">En Yüksek</div></div>
-  </div>
-  <div class="filter-bar">
-    <input type="text" id="search" placeholder="🔍 İsim ara..." oninput="renderTable()">
-    <button class="filter-btn active" onclick="setFilter('all',this)">Tümü</button>
-    <button class="filter-btn" onclick="setFilter('active',this)">Aktif</button>
-    <button class="filter-btn" onclick="setFilter('inactive',this)">Pasif</button>
-    <span class="count-info" id="count-info">94 hesap gösteriliyor</span>
-  </div>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th onclick="sortTable('rank')"># ↕</th>
-          <th onclick="sortTable('name')" style="text-align:left">Hesap Adı ↕</th>
-          <th onclick="sortTable('total')" class="sorted">Toplam ↓</th>
-          <th onclick="sortTable('hunt')">Av ↕</th>
-          <th onclick="sortTable('purchase')">Satın ↕</th>
-          <th onclick="sortTable('l1')">L1 ↕</th>
-          <th onclick="sortTable('l2')">L2 ↕</th>
-          <th onclick="sortTable('l3')">L3 ↕</th>
-          <th onclick="sortTable('l4')">L4 ↕</th>
-          <th onclick="sortTable('l5')">L5 ↕</th>
-          <th onclick="sortTable('points')">Puan ↕</th>
-        </tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-    </table>
-    <div style="text-align:center;padding:40px;color:var(--muted);font-size:14px;display:none" id="empty-msg">Sonuç bulunamadı.</div>
-  </div>
-  <div class="footer">
-    <div class="footer-note">🤖 XsX Loncası · Bot sistemi otomatik raporu · Veriler haftalık sıfırlanır</div>
-    <div class="legend">
-      <div class="leg-item"><div class="leg-dot" style="background:#10b981"></div>Aktif</div>
-      <div class="leg-item"><div class="leg-dot" style="background:#1e2640"></div>Pasif</div>
-      <div class="leg-item"><div class="leg-dot" style="background:#f59e0b"></div>Yüksek (30+)</div>
+    <div class="hero-title">⚔️ Haftalık Av Raporu</div>
+    <div class="hero-sub">Bot sistemi canavar avı istatistikleri · Puana göre sıralı</div>
+    <div class="podium">
+      <div class="pod p1"><div class="pod-medal">🥇</div><div class="pod-name">ADiGEFARUK45</div><div class="pod-pts">309</div><div class="pod-lbl">puan</div></div><div class="pod p2"><div class="pod-medal">🥈</div><div class="pod-name">06ilker</div><div class="pod-pts">129</div><div class="pod-lbl">puan</div></div><div class="pod p3"><div class="pod-medal">🥉</div><div class="pod-name">HANED4N</div><div class="pod-pts">128</div><div class="pod-lbl">puan</div></div>
     </div>
   </div>
 </div>
+<div class="sticky">
+  <div class="stats">
+    <div class="stat"><div class="n cb">2795</div><div class="l">Toplam Av</div></div>
+    <div class="stat"><div class="n cg">87</div><div class="l">Aktif</div></div>
+    <div class="stat"><div class="n co">94</div><div class="l">Hesap</div></div>
+    <div class="stat"><div class="n cp">64</div><div class="l">Satın Alma</div></div>
+  </div>
+  <div class="search-bar"><input type="text" id="search" placeholder="🔍 Kendi ismini ara..." oninput="render()" autocomplete="off"></div>
+  <div class="filters">
+    <button class="fb active" onclick="setF('all',this)">Tümü (94)</button>
+    <button class="fb" onclick="setF('active',this)">✅ Aktif (87)</button>
+    <button class="fb" onclick="setF('inactive',this)">⬜ Pasif (7)</button>
+  </div>
+  <div class="ci" id="ci">94 hesap · satıra dokun → detay</div>
+  <div class="col-head">
+    <div class="ch">#</div><div class="ch">HESAP ADI</div>
+    <div class="ch hl">PUAN</div><div class="ch">TOPLAM</div><div class="ch">AV</div>
+  </div>
+</div>
+<div class="player-list" id="list"></div>
+<div class="empty" id="empty">Sonuç bulunamadı.</div>
+<div class="ediz-ad">
+  <div class="ediz-content">
+    <div class="ediz-badge">🤖 Powered by</div>
+    <div class="ediz-title">Ediz<span>Bot</span></div>
+    <div class="ediz-desc">Bu rapor <strong>EdizBot</strong> tarafından otomatik olarak hazırlandı.<br>Loncana bot hizmeti almak, canavar avını ve haftalık istatistiklerini otomatikleştirmek ister misin?</div>
+    <div class="ediz-proof">✅ <strong>XsX</strong> loncası EdizBot ile çalışmaktadır</div>
+    <a class="ediz-btn" href="https://wa.me/905072056623?text=Merhaba%2C%20EdizBot%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum" target="_blank"><span>💬</span> WhatsApp ile İletişime Geç</a>
+    <div class="ediz-fine">Ücretsiz bilgi almak için tıkla</div>
+  </div>
+</div>
+<div class="footer">© EdizBot · Lords Mobile Bot Hizmetleri</div>
 <script>
-const RAW=[{"name": "Anonymous", "total": 80, "hunt": 19, "purchase": 61, "l1": 0, "l2": 8, "l3": 4, "l4": 5, "l5": 2, "points": 101, "rank": 1}, {"name": "ADiGEFARUK45", "total": 72, "hunt": 72, "purchase": 0, "l1": 0, "l2": 33, "l3": 23, "l4": 9, "l5": 7, "points": 309, "rank": 2}, {"name": "HANED4N", "total": 57, "hunt": 57, "purchase": 0, "l1": 0, "l2": 44, "l3": 10, "l4": 0, "l5": 3, "points": 128, "rank": 3}, {"name": "Agnay Boy", "total": 56, "hunt": 56, "purchase": 0, "l1": 0, "l2": 55, "l3": 1, "l4": 0, "l5": 0, "points": 58, "rank": 4}, {"name": "Burcuhanimmm", "total": 50, "hunt": 50, "purchase": 0, "l1": 0, "l2": 50, "l3": 0, "l4": 0, "l5": 0, "points": 50, "rank": 5}, {"name": "Seviliyorsun", "total": 50, "hunt": 50, "purchase": 0, "l1": 0, "l2": 50, "l3": 0, "l4": 0, "l5": 0, "points": 50, "rank": 6}, {"name": "VALINORlotr", "total": 50, "hunt": 50, "purchase": 0, "l1": 0, "l2": 49, "l3": 0, "l4": 0, "l5": 1, "points": 67, "rank": 7}, {"name": "YAC BiC", "total": 49, "hunt": 49, "purchase": 0, "l1": 0, "l2": 48, "l3": 1, "l4": 0, "l5": 0, "points": 51, "rank": 8}, {"name": "SiHiRLii", "total": 49, "hunt": 49, "purchase": 0, "l1": 0, "l2": 48, "l3": 1, "l4": 0, "l5": 0, "points": 51, "rank": 9}, {"name": "BiC Isa 6", "total": 48, "hunt": 48, "purchase": 0, "l1": 0, "l2": 47, "l3": 1, "l4": 0, "l5": 0, "points": 50, "rank": 10}, {"name": "Kurtulus3", "total": 48, "hunt": 48, "purchase": 0, "l1": 0, "l2": 47, "l3": 1, "l4": 0, "l5": 0, "points": 50, "rank": 11}, {"name": "Minnos 9", "total": 48, "hunt": 48, "purchase": 0, "l1": 0, "l2": 47, "l3": 1, "l4": 0, "l5": 0, "points": 50, "rank": 12}, {"name": "gokhangibi", "total": 48, "hunt": 48, "purchase": 0, "l1": 0, "l2": 47, "l3": 1, "l4": 0, "l5": 0, "points": 50, "rank": 13}, {"name": "HarunTrl", "total": 47, "hunt": 47, "purchase": 0, "l1": 0, "l2": 40, "l3": 7, "l4": 0, "l5": 0, "points": 61, "rank": 14}, {"name": "BLackSnake", "total": 47, "hunt": 47, "purchase": 0, "l1": 0, "l2": 42, "l3": 5, "l4": 0, "l5": 0, "points": 57, "rank": 15}, {"name": "lord Leon 0", "total": 47, "hunt": 47, "purchase": 0, "l1": 0, "l2": 31, "l3": 16, "l4": 0, "l5": 0, "points": 79, "rank": 16}, {"name": "ROTERAPTER", "total": 47, "hunt": 47, "purchase": 0, "l1": 0, "l2": 41, "l3": 6, "l4": 0, "l5": 0, "points": 59, "rank": 17}, {"name": "Baby 61", "total": 46, "hunt": 46, "purchase": 0, "l1": 0, "l2": 44, "l3": 2, "l4": 0, "l5": 0, "points": 50, "rank": 18}, {"name": "DrGkhn", "total": 46, "hunt": 46, "purchase": 0, "l1": 0, "l2": 44, "l3": 2, "l4": 0, "l5": 0, "points": 50, "rank": 19}, {"name": "Isaciogullar", "total": 46, "hunt": 46, "purchase": 0, "l1": 0, "l2": 43, "l3": 3, "l4": 0, "l5": 0, "points": 52, "rank": 20}, {"name": "IFiONAI", "total": 46, "hunt": 46, "purchase": 0, "l1": 0, "l2": 44, "l3": 2, "l4": 0, "l5": 0, "points": 50, "rank": 21}, {"name": "Alaybeyi TR", "total": 45, "hunt": 45, "purchase": 0, "l1": 0, "l2": 44, "l3": 0, "l4": 1, "l5": 0, "points": 53, "rank": 22}, {"name": "KissOfTurk", "total": 45, "hunt": 45, "purchase": 0, "l1": 0, "l2": 38, "l3": 7, "l4": 0, "l5": 0, "points": 59, "rank": 23}, {"name": "MrKAYA", "total": 44, "hunt": 44, "purchase": 0, "l1": 0, "l2": 41, "l3": 3, "l4": 0, "l5": 0, "points": 50, "rank": 24}, {"name": "Dentist1907", "total": 43, "hunt": 43, "purchase": 0, "l1": 0, "l2": 31, "l3": 11, "l4": 1, "l5": 0, "points": 73, "rank": 25}, {"name": "Kurt Seyit", "total": 42, "hunt": 42, "purchase": 0, "l1": 0, "l2": 33, "l3": 8, "l4": 1, "l5": 0, "points": 66, "rank": 26}, {"name": "IGaLaDrieLI", "total": 42, "hunt": 42, "purchase": 0, "l1": 0, "l2": 38, "l3": 4, "l4": 0, "l5": 0, "points": 50, "rank": 27}, {"name": "filibeli", "total": 41, "hunt": 41, "purchase": 0, "l1": 0, "l2": 34, "l3": 7, "l4": 0, "l5": 0, "points": 55, "rank": 28}, {"name": "Freddy kru", "total": 41, "hunt": 41, "purchase": 0, "l1": 0, "l2": 41, "l3": 0, "l4": 0, "l5": 0, "points": 41, "rank": 29}, {"name": "IIGANDALFII", "total": 41, "hunt": 41, "purchase": 0, "l1": 0, "l2": 33, "l3": 7, "l4": 0, "l5": 1, "points": 72, "rank": 30}, {"name": "Underworld 0", "total": 40, "hunt": 40, "purchase": 0, "l1": 0, "l2": 34, "l3": 6, "l4": 0, "l5": 0, "points": 52, "rank": 31}, {"name": "Garaga Cobra", "total": 39, "hunt": 39, "purchase": 0, "l1": 0, "l2": 39, "l3": 0, "l4": 0, "l5": 0, "points": 39, "rank": 32}, {"name": "D U D U N G", "total": 38, "hunt": 38, "purchase": 0, "l1": 0, "l2": 31, "l3": 7, "l4": 0, "l5": 0, "points": 52, "rank": 33}, {"name": "WhyBee41", "total": 38, "hunt": 38, "purchase": 0, "l1": 0, "l2": 32, "l3": 6, "l4": 0, "l5": 0, "points": 50, "rank": 34}, {"name": "pld1", "total": 37, "hunt": 37, "purchase": 0, "l1": 0, "l2": 30, "l3": 7, "l4": 0, "l5": 0, "points": 51, "rank": 35}, {"name": "vvVENDETTAvv", "total": 37, "hunt": 37, "purchase": 0, "l1": 0, "l2": 29, "l3": 8, "l4": 0, "l5": 0, "points": 53, "rank": 36}, {"name": "karamemo2121", "total": 36, "hunt": 36, "purchase": 0, "l1": 0, "l2": 16, "l3": 19, "l4": 0, "l5": 1, "points": 91, "rank": 37}, {"name": "Serotoninnn", "total": 36, "hunt": 36, "purchase": 0, "l1": 0, "l2": 35, "l3": 0, "l4": 0, "l5": 1, "points": 53, "rank": 38}, {"name": "yznebe", "total": 36, "hunt": 36, "purchase": 0, "l1": 0, "l2": 30, "l3": 5, "l4": 0, "l5": 1, "points": 63, "rank": 39}, {"name": "Doll Killer", "total": 35, "hunt": 35, "purchase": 0, "l1": 0, "l2": 35, "l3": 0, "l4": 0, "l5": 0, "points": 35, "rank": 40}, {"name": "Haomano", "total": 35, "hunt": 35, "purchase": 0, "l1": 0, "l2": 18, "l3": 17, "l4": 0, "l5": 0, "points": 69, "rank": 41}, {"name": "Demir333", "total": 34, "hunt": 34, "purchase": 0, "l1": 0, "l2": 31, "l3": 3, "l4": 0, "l5": 0, "points": 40, "rank": 42}, {"name": "M  S  N", "total": 34, "hunt": 34, "purchase": 0, "l1": 0, "l2": 26, "l3": 8, "l4": 0, "l5": 0, "points": 50, "rank": 43}, {"name": "06ilker", "total": 34, "hunt": 34, "purchase": 0, "l1": 0, "l2": 9, "l3": 22, "l4": 0, "l5": 3, "points": 129, "rank": 44}, {"name": "II DaDiRo II", "total": 33, "hunt": 33, "purchase": 0, "l1": 0, "l2": 31, "l3": 1, "l4": 1, "l5": 0, "points": 43, "rank": 45}, {"name": "asel 22", "total": 32, "hunt": 32, "purchase": 0, "l1": 0, "l2": 22, "l3": 10, "l4": 0, "l5": 0, "points": 52, "rank": 46}, {"name": "3MeeJl0B", "total": 31, "hunt": 31, "purchase": 0, "l1": 0, "l2": 18, "l3": 13, "l4": 0, "l5": 0, "points": 57, "rank": 47}, {"name": "dolunaYY", "total": 31, "hunt": 31, "purchase": 0, "l1": 0, "l2": 22, "l3": 8, "l4": 1, "l5": 0, "points": 55, "rank": 48}, {"name": "Agnay Kit", "total": 31, "hunt": 31, "purchase": 0, "l1": 1, "l2": 30, "l3": 0, "l4": 0, "l5": 0, "points": 30, "rank": 49}, {"name": "Zezecikk", "total": 30, "hunt": 30, "purchase": 0, "l1": 0, "l2": 23, "l3": 7, "l4": 0, "l5": 0, "points": 44, "rank": 50}, {"name": "MaddJAKE", "total": 29, "hunt": 27, "purchase": 2, "l1": 0, "l2": 19, "l3": 8, "l4": 0, "l5": 0, "points": 43, "rank": 51}, {"name": "I R E S I", "total": 29, "hunt": 29, "purchase": 0, "l1": 0, "l2": 24, "l3": 4, "l4": 0, "l5": 1, "points": 54, "rank": 52}, {"name": "MardinliO47", "total": 29, "hunt": 29, "purchase": 0, "l1": 0, "l2": 23, "l3": 4, "l4": 2, "l5": 0, "points": 53, "rank": 53}, {"name": "SUNVI", "total": 29, "hunt": 29, "purchase": 0, "l1": 0, "l2": 25, "l3": 4, "l4": 0, "l5": 0, "points": 37, "rank": 54}, {"name": "raed007", "total": 27, "hunt": 27, "purchase": 0, "l1": 0, "l2": 26, "l3": 1, "l4": 0, "l5": 0, "points": 29, "rank": 55}, {"name": "YAC Family", "total": 26, "hunt": 26, "purchase": 0, "l1": 0, "l2": 25, "l3": 1, "l4": 0, "l5": 0, "points": 28, "rank": 56}, {"name": "I estergon I", "total": 26, "hunt": 26, "purchase": 0, "l1": 0, "l2": 9, "l3": 16, "l4": 1, "l5": 0, "points": 66, "rank": 57}, {"name": "Samurai Burg", "total": 26, "hunt": 26, "purchase": 0, "l1": 0, "l2": 12, "l3": 14, "l4": 0, "l5": 0, "points": 54, "rank": 58}, {"name": "Im Security", "total": 25, "hunt": 25, "purchase": 0, "l1": 0, "l2": 12, "l3": 13, "l4": 0, "l5": 0, "points": 51, "rank": 59}, {"name": "Tayir0v", "total": 25, "hunt": 25, "purchase": 0, "l1": 1, "l2": 24, "l3": 0, "l4": 0, "l5": 0, "points": 24, "rank": 60}, {"name": "force 94", "total": 25, "hunt": 25, "purchase": 0, "l1": 0, "l2": 21, "l3": 4, "l4": 0, "l5": 0, "points": 33, "rank": 61}, {"name": "Marwen TN 1", "total": 24, "hunt": 24, "purchase": 0, "l1": 0, "l2": 19, "l3": 2, "l4": 3, "l5": 0, "points": 52, "rank": 62}, {"name": "MeGa Kid", "total": 24, "hunt": 24, "purchase": 0, "l1": 0, "l2": 19, "l3": 4, "l4": 0, "l5": 1, "points": 49, "rank": 63}, {"name": "STAR 05", "total": 24, "hunt": 24, "purchase": 0, "l1": 0, "l2": 24, "l3": 0, "l4": 0, "l5": 0, "points": 24, "rank": 64}, {"name": "AzE Wolk 28", "total": 22, "hunt": 22, "purchase": 0, "l1": 0, "l2": 17, "l3": 2, "l4": 2, "l5": 1, "points": 59, "rank": 65}, {"name": "Ahmed mazika", "total": 19, "hunt": 19, "purchase": 0, "l1": 0, "l2": 13, "l3": 6, "l4": 0, "l5": 0, "points": 31, "rank": 66}, {"name": "YAC Vera 34", "total": 19, "hunt": 19, "purchase": 0, "l1": 0, "l2": 19, "l3": 0, "l4": 0, "l5": 0, "points": 19, "rank": 67}, {"name": "C U M H U R", "total": 19, "hunt": 19, "purchase": 0, "l1": 0, "l2": 19, "l3": 0, "l4": 0, "l5": 0, "points": 19, "rank": 68}, {"name": "AZE YAKICI", "total": 18, "hunt": 18, "purchase": 0, "l1": 0, "l2": 16, "l3": 2, "l4": 0, "l5": 0, "points": 22, "rank": 69}, {"name": "Laktozsuz", "total": 17, "hunt": 17, "purchase": 0, "l1": 0, "l2": 17, "l3": 0, "l4": 0, "l5": 0, "points": 17, "rank": 70}, {"name": "Zertin", "total": 17, "hunt": 17, "purchase": 0, "l1": 0, "l2": 11, "l3": 6, "l4": 0, "l5": 0, "points": 29, "rank": 71}, {"name": "gurkha00", "total": 15, "hunt": 15, "purchase": 0, "l1": 0, "l2": 8, "l3": 7, "l4": 0, "l5": 0, "points": 29, "rank": 72}, {"name": "0EfeKentli09", "total": 14, "hunt": 14, "purchase": 0, "l1": 0, "l2": 3, "l3": 9, "l4": 2, "l5": 0, "points": 48, "rank": 73}, {"name": "BAM BAM K", "total": 14, "hunt": 14, "purchase": 0, "l1": 0, "l2": 12, "l3": 2, "l4": 0, "l5": 0, "points": 18, "rank": 74}, {"name": "no name req", "total": 12, "hunt": 12, "purchase": 0, "l1": 0, "l2": 11, "l3": 1, "l4": 0, "l5": 0, "points": 14, "rank": 75}, {"name": "STAR 55 2", "total": 12, "hunt": 12, "purchase": 0, "l1": 0, "l2": 10, "l3": 2, "l4": 0, "l5": 0, "points": 16, "rank": 76}, {"name": "STAR 55", "total": 10, "hunt": 10, "purchase": 0, "l1": 0, "l2": 9, "l3": 1, "l4": 0, "l5": 0, "points": 12, "rank": 77}, {"name": "ERTURK3460", "total": 9, "hunt": 9, "purchase": 0, "l1": 0, "l2": 7, "l3": 2, "l4": 0, "l5": 0, "points": 13, "rank": 78}, {"name": "Fearless HAN", "total": 8, "hunt": 8, "purchase": 0, "l1": 0, "l2": 0, "l3": 4, "l4": 3, "l5": 1, "points": 57, "rank": 79}, {"name": "Emre35", "total": 8, "hunt": 8, "purchase": 0, "l1": 0, "l2": 4, "l3": 3, "l4": 0, "l5": 1, "points": 31, "rank": 80}, {"name": "ozzy13", "total": 7, "hunt": 6, "purchase": 1, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 6, "points": 108, "rank": 81}, {"name": "Acc Eslam", "total": 7, "hunt": 7, "purchase": 0, "l1": 0, "l2": 1, "l3": 6, "l4": 0, "l5": 0, "points": 19, "rank": 82}, {"name": "GeNeRaLL 55", "total": 7, "hunt": 7, "purchase": 0, "l1": 0, "l2": 4, "l3": 3, "l4": 0, "l5": 0, "points": 13, "rank": 83}, {"name": "STAR 55 4", "total": 6, "hunt": 6, "purchase": 0, "l1": 0, "l2": 5, "l3": 1, "l4": 0, "l5": 0, "points": 8, "rank": 84}, {"name": "Pun kat", "total": 3, "hunt": 3, "purchase": 0, "l1": 0, "l2": 3, "l3": 0, "l4": 0, "l5": 0, "points": 3, "rank": 85}, {"name": "selfester N1", "total": 3, "hunt": 3, "purchase": 0, "l1": 0, "l2": 2, "l3": 1, "l4": 0, "l5": 0, "points": 5, "rank": 86}, {"name": "W Captain W", "total": 3, "hunt": 3, "purchase": 0, "l1": 0, "l2": 0, "l3": 3, "l4": 0, "l5": 0, "points": 9, "rank": 87}, {"name": "BiC YAC", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 88}, {"name": "IISTEFANII", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 89}, {"name": "Jesus ero", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 90}, {"name": "YAC BiC Depo", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 91}, {"name": "Yaman bey", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 92}, {"name": "ZeZeMaNYaKk", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 93}, {"name": "DrProfessor", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 94}];
-const maxTotal=80;
-let currentFilter='all',sortKey='total',sortAsc=false,data=[...RAW];
-function lvClass(v){if(!v)return'zero';if(v<=3)return'low';if(v<=10)return'mid';return'high';}
-function rankHtml(r,active){
-  if(!active)return'<span class="rank rank-n">—</span>';
-  if(r===1)return'<span class="rank rank-1">🥇</span>';
-  if(r===2)return'<span class="rank rank-2">🥈</span>';
-  if(r===3)return'<span class="rank rank-3">🥉</span>';
-  return'<span class="rank rank-n">'+r+'</span>';
-}
-function barHtml(val,max,color){
-  const pct=max?Math.round((val/max)*100):0;
-  return'<div class="bar-wrap"><span>'+val+'</span><div class="bar-bg"><div class="bar-fill" style="width:'+pct+'%;background:'+color+'"></div></div></div>';
-}
-function renderTable(){
-  const tbody=document.getElementById('tbody');
-  const search=document.getElementById('search').value.toLowerCase();
-  let filtered=data.filter(p=>{
-    const m=p.name.toLowerCase().includes(search);
-    if(currentFilter==='active')return m&&p.total>0;
-    if(currentFilter==='inactive')return m&&p.total===0;
+const RAW=[{"name": "ADiGEFARUK45", "total": 72, "hunt": 72, "purchase": 0, "l1": 0, "l2": 33, "l3": 23, "l4": 9, "l5": 7, "points": 309, "rank": 1}, {"name": "06ilker", "total": 34, "hunt": 34, "purchase": 0, "l1": 0, "l2": 9, "l3": 22, "l4": 0, "l5": 3, "points": 129, "rank": 2}, {"name": "HANED4N", "total": 57, "hunt": 57, "purchase": 0, "l1": 0, "l2": 44, "l3": 10, "l4": 0, "l5": 3, "points": 128, "rank": 3}, {"name": "ozzy13", "total": 7, "hunt": 6, "purchase": 1, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 6, "points": 108, "rank": 4}, {"name": "Anonymous", "total": 80, "hunt": 19, "purchase": 61, "l1": 0, "l2": 8, "l3": 4, "l4": 5, "l5": 2, "points": 101, "rank": 5}, {"name": "karamemo2121", "total": 36, "hunt": 36, "purchase": 0, "l1": 0, "l2": 16, "l3": 19, "l4": 0, "l5": 1, "points": 91, "rank": 6}, {"name": "lord Leon 0", "total": 47, "hunt": 47, "purchase": 0, "l1": 0, "l2": 31, "l3": 16, "l4": 0, "l5": 0, "points": 79, "rank": 7}, {"name": "Dentist1907", "total": 43, "hunt": 43, "purchase": 0, "l1": 0, "l2": 31, "l3": 11, "l4": 1, "l5": 0, "points": 73, "rank": 8}, {"name": "IIGANDALFII", "total": 41, "hunt": 41, "purchase": 0, "l1": 0, "l2": 33, "l3": 7, "l4": 0, "l5": 1, "points": 72, "rank": 9}, {"name": "Haomano", "total": 35, "hunt": 35, "purchase": 0, "l1": 0, "l2": 18, "l3": 17, "l4": 0, "l5": 0, "points": 69, "rank": 10}, {"name": "VALINORlotr", "total": 50, "hunt": 50, "purchase": 0, "l1": 0, "l2": 49, "l3": 0, "l4": 0, "l5": 1, "points": 67, "rank": 11}, {"name": "Kurt Seyit", "total": 42, "hunt": 42, "purchase": 0, "l1": 0, "l2": 33, "l3": 8, "l4": 1, "l5": 0, "points": 66, "rank": 12}, {"name": "I estergon I", "total": 26, "hunt": 26, "purchase": 0, "l1": 0, "l2": 9, "l3": 16, "l4": 1, "l5": 0, "points": 66, "rank": 13}, {"name": "yznebe", "total": 36, "hunt": 36, "purchase": 0, "l1": 0, "l2": 30, "l3": 5, "l4": 0, "l5": 1, "points": 63, "rank": 14}, {"name": "HarunTrl", "total": 47, "hunt": 47, "purchase": 0, "l1": 0, "l2": 40, "l3": 7, "l4": 0, "l5": 0, "points": 61, "rank": 15}, {"name": "KissOfTurk", "total": 45, "hunt": 45, "purchase": 0, "l1": 0, "l2": 38, "l3": 7, "l4": 0, "l5": 0, "points": 59, "rank": 16}, {"name": "AzE Wolk 28", "total": 22, "hunt": 22, "purchase": 0, "l1": 0, "l2": 17, "l3": 2, "l4": 2, "l5": 1, "points": 59, "rank": 17}, {"name": "ROTERAPTER", "total": 47, "hunt": 47, "purchase": 0, "l1": 0, "l2": 41, "l3": 6, "l4": 0, "l5": 0, "points": 59, "rank": 18}, {"name": "Agnay Boy", "total": 56, "hunt": 56, "purchase": 0, "l1": 0, "l2": 55, "l3": 1, "l4": 0, "l5": 0, "points": 58, "rank": 19}, {"name": "3MeeJl0B", "total": 31, "hunt": 31, "purchase": 0, "l1": 0, "l2": 18, "l3": 13, "l4": 0, "l5": 0, "points": 57, "rank": 20}, {"name": "BLackSnake", "total": 47, "hunt": 47, "purchase": 0, "l1": 0, "l2": 42, "l3": 5, "l4": 0, "l5": 0, "points": 57, "rank": 21}, {"name": "Fearless HAN", "total": 8, "hunt": 8, "purchase": 0, "l1": 0, "l2": 0, "l3": 4, "l4": 3, "l5": 1, "points": 57, "rank": 22}, {"name": "dolunaYY", "total": 31, "hunt": 31, "purchase": 0, "l1": 0, "l2": 22, "l3": 8, "l4": 1, "l5": 0, "points": 55, "rank": 23}, {"name": "filibeli", "total": 41, "hunt": 41, "purchase": 0, "l1": 0, "l2": 34, "l3": 7, "l4": 0, "l5": 0, "points": 55, "rank": 24}, {"name": "I R E S I", "total": 29, "hunt": 29, "purchase": 0, "l1": 0, "l2": 24, "l3": 4, "l4": 0, "l5": 1, "points": 54, "rank": 25}, {"name": "Samurai Burg", "total": 26, "hunt": 26, "purchase": 0, "l1": 0, "l2": 12, "l3": 14, "l4": 0, "l5": 0, "points": 54, "rank": 26}, {"name": "Alaybeyi TR", "total": 45, "hunt": 45, "purchase": 0, "l1": 0, "l2": 44, "l3": 0, "l4": 1, "l5": 0, "points": 53, "rank": 27}, {"name": "MardinliO47", "total": 29, "hunt": 29, "purchase": 0, "l1": 0, "l2": 23, "l3": 4, "l4": 2, "l5": 0, "points": 53, "rank": 28}, {"name": "Serotoninnn", "total": 36, "hunt": 36, "purchase": 0, "l1": 0, "l2": 35, "l3": 0, "l4": 0, "l5": 1, "points": 53, "rank": 29}, {"name": "vvVENDETTAvv", "total": 37, "hunt": 37, "purchase": 0, "l1": 0, "l2": 29, "l3": 8, "l4": 0, "l5": 0, "points": 53, "rank": 30}, {"name": "D U D U N G", "total": 38, "hunt": 38, "purchase": 0, "l1": 0, "l2": 31, "l3": 7, "l4": 0, "l5": 0, "points": 52, "rank": 31}, {"name": "Isaciogullar", "total": 46, "hunt": 46, "purchase": 0, "l1": 0, "l2": 43, "l3": 3, "l4": 0, "l5": 0, "points": 52, "rank": 32}, {"name": "Marwen TN 1", "total": 24, "hunt": 24, "purchase": 0, "l1": 0, "l2": 19, "l3": 2, "l4": 3, "l5": 0, "points": 52, "rank": 33}, {"name": "asel 22", "total": 32, "hunt": 32, "purchase": 0, "l1": 0, "l2": 22, "l3": 10, "l4": 0, "l5": 0, "points": 52, "rank": 34}, {"name": "Underworld 0", "total": 40, "hunt": 40, "purchase": 0, "l1": 0, "l2": 34, "l3": 6, "l4": 0, "l5": 0, "points": 52, "rank": 35}, {"name": "Im Security", "total": 25, "hunt": 25, "purchase": 0, "l1": 0, "l2": 12, "l3": 13, "l4": 0, "l5": 0, "points": 51, "rank": 36}, {"name": "YAC BiC", "total": 49, "hunt": 49, "purchase": 0, "l1": 0, "l2": 48, "l3": 1, "l4": 0, "l5": 0, "points": 51, "rank": 37}, {"name": "pld1", "total": 37, "hunt": 37, "purchase": 0, "l1": 0, "l2": 30, "l3": 7, "l4": 0, "l5": 0, "points": 51, "rank": 38}, {"name": "SiHiRLii", "total": 49, "hunt": 49, "purchase": 0, "l1": 0, "l2": 48, "l3": 1, "l4": 0, "l5": 0, "points": 51, "rank": 39}, {"name": "Burcuhanimmm", "total": 50, "hunt": 50, "purchase": 0, "l1": 0, "l2": 50, "l3": 0, "l4": 0, "l5": 0, "points": 50, "rank": 40}, {"name": "Baby 61", "total": 46, "hunt": 46, "purchase": 0, "l1": 0, "l2": 44, "l3": 2, "l4": 0, "l5": 0, "points": 50, "rank": 41}, {"name": "BiC Isa 6", "total": 48, "hunt": 48, "purchase": 0, "l1": 0, "l2": 47, "l3": 1, "l4": 0, "l5": 0, "points": 50, "rank": 42}, {"name": "DrGkhn", "total": 46, "hunt": 46, "purchase": 0, "l1": 0, "l2": 44, "l3": 2, "l4": 0, "l5": 0, "points": 50, "rank": 43}, {"name": "Kurtulus3", "total": 48, "hunt": 48, "purchase": 0, "l1": 0, "l2": 47, "l3": 1, "l4": 0, "l5": 0, "points": 50, "rank": 44}, {"name": "Minnos 9", "total": 48, "hunt": 48, "purchase": 0, "l1": 0, "l2": 47, "l3": 1, "l4": 0, "l5": 0, "points": 50, "rank": 45}, {"name": "Seviliyorsun", "total": 50, "hunt": 50, "purchase": 0, "l1": 0, "l2": 50, "l3": 0, "l4": 0, "l5": 0, "points": 50, "rank": 46}, {"name": "IFiONAI", "total": 46, "hunt": 46, "purchase": 0, "l1": 0, "l2": 44, "l3": 2, "l4": 0, "l5": 0, "points": 50, "rank": 47}, {"name": "IGaLaDrieLI", "total": 42, "hunt": 42, "purchase": 0, "l1": 0, "l2": 38, "l3": 4, "l4": 0, "l5": 0, "points": 50, "rank": 48}, {"name": "M  S  N", "total": 34, "hunt": 34, "purchase": 0, "l1": 0, "l2": 26, "l3": 8, "l4": 0, "l5": 0, "points": 50, "rank": 49}, {"name": "MrKAYA", "total": 44, "hunt": 44, "purchase": 0, "l1": 0, "l2": 41, "l3": 3, "l4": 0, "l5": 0, "points": 50, "rank": 50}, {"name": "WhyBee41", "total": 38, "hunt": 38, "purchase": 0, "l1": 0, "l2": 32, "l3": 6, "l4": 0, "l5": 0, "points": 50, "rank": 51}, {"name": "gokhangibi", "total": 48, "hunt": 48, "purchase": 0, "l1": 0, "l2": 47, "l3": 1, "l4": 0, "l5": 0, "points": 50, "rank": 52}, {"name": "MeGa Kid", "total": 24, "hunt": 24, "purchase": 0, "l1": 0, "l2": 19, "l3": 4, "l4": 0, "l5": 1, "points": 49, "rank": 53}, {"name": "0EfeKentli09", "total": 14, "hunt": 14, "purchase": 0, "l1": 0, "l2": 3, "l3": 9, "l4": 2, "l5": 0, "points": 48, "rank": 54}, {"name": "Zezecikk", "total": 30, "hunt": 30, "purchase": 0, "l1": 0, "l2": 23, "l3": 7, "l4": 0, "l5": 0, "points": 44, "rank": 55}, {"name": "MaddJAKE", "total": 29, "hunt": 27, "purchase": 2, "l1": 0, "l2": 19, "l3": 8, "l4": 0, "l5": 0, "points": 43, "rank": 56}, {"name": "II DaDiRo II", "total": 33, "hunt": 33, "purchase": 0, "l1": 0, "l2": 31, "l3": 1, "l4": 1, "l5": 0, "points": 43, "rank": 57}, {"name": "Freddy kru", "total": 41, "hunt": 41, "purchase": 0, "l1": 0, "l2": 41, "l3": 0, "l4": 0, "l5": 0, "points": 41, "rank": 58}, {"name": "Demir333", "total": 34, "hunt": 34, "purchase": 0, "l1": 0, "l2": 31, "l3": 3, "l4": 0, "l5": 0, "points": 40, "rank": 59}, {"name": "Garaga Cobra", "total": 39, "hunt": 39, "purchase": 0, "l1": 0, "l2": 39, "l3": 0, "l4": 0, "l5": 0, "points": 39, "rank": 60}, {"name": "SUNVI", "total": 29, "hunt": 29, "purchase": 0, "l1": 0, "l2": 25, "l3": 4, "l4": 0, "l5": 0, "points": 37, "rank": 61}, {"name": "Doll Killer", "total": 35, "hunt": 35, "purchase": 0, "l1": 0, "l2": 35, "l3": 0, "l4": 0, "l5": 0, "points": 35, "rank": 62}, {"name": "force 94", "total": 25, "hunt": 25, "purchase": 0, "l1": 0, "l2": 21, "l3": 4, "l4": 0, "l5": 0, "points": 33, "rank": 63}, {"name": "Ahmed mazika", "total": 19, "hunt": 19, "purchase": 0, "l1": 0, "l2": 13, "l3": 6, "l4": 0, "l5": 0, "points": 31, "rank": 64}, {"name": "Emre35", "total": 8, "hunt": 8, "purchase": 0, "l1": 0, "l2": 4, "l3": 3, "l4": 0, "l5": 1, "points": 31, "rank": 65}, {"name": "Agnay Kit", "total": 31, "hunt": 31, "purchase": 0, "l1": 1, "l2": 30, "l3": 0, "l4": 0, "l5": 0, "points": 30, "rank": 66}, {"name": "gurkha00", "total": 15, "hunt": 15, "purchase": 0, "l1": 0, "l2": 8, "l3": 7, "l4": 0, "l5": 0, "points": 29, "rank": 67}, {"name": "raed007", "total": 27, "hunt": 27, "purchase": 0, "l1": 0, "l2": 26, "l3": 1, "l4": 0, "l5": 0, "points": 29, "rank": 68}, {"name": "Zertin", "total": 17, "hunt": 17, "purchase": 0, "l1": 0, "l2": 11, "l3": 6, "l4": 0, "l5": 0, "points": 29, "rank": 69}, {"name": "YAC Family", "total": 26, "hunt": 26, "purchase": 0, "l1": 0, "l2": 25, "l3": 1, "l4": 0, "l5": 0, "points": 28, "rank": 70}, {"name": "Tayir0v", "total": 25, "hunt": 25, "purchase": 0, "l1": 1, "l2": 24, "l3": 0, "l4": 0, "l5": 0, "points": 24, "rank": 71}, {"name": "STAR 05", "total": 24, "hunt": 24, "purchase": 0, "l1": 0, "l2": 24, "l3": 0, "l4": 0, "l5": 0, "points": 24, "rank": 72}, {"name": "AZE YAKICI", "total": 18, "hunt": 18, "purchase": 0, "l1": 0, "l2": 16, "l3": 2, "l4": 0, "l5": 0, "points": 22, "rank": 73}, {"name": "Acc Eslam", "total": 7, "hunt": 7, "purchase": 0, "l1": 0, "l2": 1, "l3": 6, "l4": 0, "l5": 0, "points": 19, "rank": 74}, {"name": "YAC Vera 34", "total": 19, "hunt": 19, "purchase": 0, "l1": 0, "l2": 19, "l3": 0, "l4": 0, "l5": 0, "points": 19, "rank": 75}, {"name": "C U M H U R", "total": 19, "hunt": 19, "purchase": 0, "l1": 0, "l2": 19, "l3": 0, "l4": 0, "l5": 0, "points": 19, "rank": 76}, {"name": "BAM BAM K", "total": 14, "hunt": 14, "purchase": 0, "l1": 0, "l2": 12, "l3": 2, "l4": 0, "l5": 0, "points": 18, "rank": 77}, {"name": "Laktozsuz", "total": 17, "hunt": 17, "purchase": 0, "l1": 0, "l2": 17, "l3": 0, "l4": 0, "l5": 0, "points": 17, "rank": 78}, {"name": "STAR 55 2", "total": 12, "hunt": 12, "purchase": 0, "l1": 0, "l2": 10, "l3": 2, "l4": 0, "l5": 0, "points": 16, "rank": 79}, {"name": "no name req", "total": 12, "hunt": 12, "purchase": 0, "l1": 0, "l2": 11, "l3": 1, "l4": 0, "l5": 0, "points": 14, "rank": 80}, {"name": "ERTURK3460", "total": 9, "hunt": 9, "purchase": 0, "l1": 0, "l2": 7, "l3": 2, "l4": 0, "l5": 0, "points": 13, "rank": 81}, {"name": "GeNeRaLL 55", "total": 7, "hunt": 7, "purchase": 0, "l1": 0, "l2": 4, "l3": 3, "l4": 0, "l5": 0, "points": 13, "rank": 82}, {"name": "STAR 55", "total": 10, "hunt": 10, "purchase": 0, "l1": 0, "l2": 9, "l3": 1, "l4": 0, "l5": 0, "points": 12, "rank": 83}, {"name": "W Captain W", "total": 3, "hunt": 3, "purchase": 0, "l1": 0, "l2": 0, "l3": 3, "l4": 0, "l5": 0, "points": 9, "rank": 84}, {"name": "STAR 55 4", "total": 6, "hunt": 6, "purchase": 0, "l1": 0, "l2": 5, "l3": 1, "l4": 0, "l5": 0, "points": 8, "rank": 85}, {"name": "selfester N1", "total": 3, "hunt": 3, "purchase": 0, "l1": 0, "l2": 2, "l3": 1, "l4": 0, "l5": 0, "points": 5, "rank": 86}, {"name": "Pun kat", "total": 3, "hunt": 3, "purchase": 0, "l1": 0, "l2": 3, "l3": 0, "l4": 0, "l5": 0, "points": 3, "rank": 87}, {"name": "BiC YAC", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 88}, {"name": "IISTEFANII", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 89}, {"name": "Jesus ero", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 90}, {"name": "YAC BiC Depo", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 91}, {"name": "Yaman bey", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 92}, {"name": "ZeZeMaNYaKk", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 93}, {"name": "DrProfessor", "total": 0, "hunt": 0, "purchase": 0, "l1": 0, "l2": 0, "l3": 0, "l4": 0, "l5": 0, "points": 0, "rank": 94}];
+const MP=309;
+let flt='all',data=[...RAW],openIdx=null;
+function toggle(idx){openIdx=openIdx===idx?null:idx;render(true);}
+function render(){
+  const s=document.getElementById('search').value.toLowerCase();
+  let rows=data.filter(p=>{
+    const m=p.name.toLowerCase().includes(s);
+    if(flt==='active')return m&&(p.points>0||p.total>0);
+    if(flt==='inactive')return m&&p.points===0&&p.total===0;
     return m;
   });
-  document.getElementById('count-info').textContent=filtered.length+' hesap gösteriliyor';
-  document.getElementById('empty-msg').style.display=filtered.length===0?'block':'none';
-  tbody.innerHTML=filtered.map(p=>{
-    const active=p.total>0;
-    const dot=active?'<div class="active-dot"></div>':'<div class="inactive-dot"></div>';
-    const barColor=p.total>=30?'#f59e0b':p.total>=10?'#60a5fa':'#334155';
-    return'<tr class="'+(active?'':'inactive')+'"><td>'+rankHtml(p.rank,active)+'</td><td><div class="name-cell">'+dot+'<span>'+p.name+'</span></div></td><td>'+barHtml(p.total,maxTotal,barColor)+'</td><td>'+(p.hunt||'<span class="lv zero">—</span>')+'</td><td>'+(p.purchase||'<span class="lv zero">—</span>')+'</td><td class="lv '+lvClass(p.l1)+'">'+(p.l1||'—')+'</td><td class="lv '+lvClass(p.l2)+'">'+(p.l2||'—')+'</td><td class="lv '+lvClass(p.l3)+'">'+(p.l3||'—')+'</td><td class="lv '+lvClass(p.l4)+'">'+(p.l4||'—')+'</td><td class="lv '+lvClass(p.l5)+'">'+(p.l5||'—')+'</td><td class="pts '+(p.points>0?'pos':'zero')+'">'+(p.points||'—')+'</td></tr>';
+  document.getElementById('ci').textContent=rows.length+' hesap · satıra dokun → detay';
+  document.getElementById('empty').style.display=rows.length===0?'block':'none';
+  document.getElementById('list').innerHTML=rows.map((p,i)=>{
+    const active=p.points>0||p.total>0;
+    const pct=MP?Math.round(p.points/MP*100):0;
+    let rb;
+    if(!active)rb='<div class="rn">—</div>';
+    else if(p.rank===1)rb='<div class="rank-box r1">🥇</div>';
+    else if(p.rank===2)rb='<div class="rank-box r2">🥈</div>';
+    else if(p.rank===3)rb='<div class="rank-box r3">🥉</div>';
+    else rb=`<div class="rn">${p.rank}</div>`;
+    const dot=active?'<div class="adot"></div>':'<div class="idot"></div>';
+    const isOpen=openIdx===i;
+    return `<div class="pitem ${active?'':'inactive'}">
+      <div class="prow" onclick="toggle(${i})">${rb}
+        <div class="name-col">
+          <div class="pname">${dot}<span>${p.name}</span></div>
+          <div class="pbar"><div class="pbar-fill" style="width:${pct}%"></div></div>
+        </div>
+        <div class="val v-pts">${p.points||0}</div>
+        <div class="val v-dim">${p.total||0}</div>
+        <div class="val v-dim">${p.hunt||0}</div>
+      </div>
+      <div class="detail ${isOpen?'open':''}">
+        <div class="d4">
+          <div class="dbox"><div class="dl">Puan</div><div class="dv dv-pts">${p.points||0}</div></div>
+          <div class="dbox"><div class="dl">Toplam Av</div><div class="dv dv-tot">${p.total||0}</div></div>
+          <div class="dbox"><div class="dl">Av</div><div class="dv dv-tot">${p.hunt||0}</div></div>
+          <div class="dbox"><div class="dl">Satın Al</div><div class="dv dv-purch">${p.purchase||0}</div></div>
+        </div>
+        <hr class="detail-divider">
+        <div class="d5">
+          <div class="sbox"><div class="sl">S1</div><div class="sv dv-s1">${p.l1||0}</div></div>
+          <div class="sbox"><div class="sl">S2</div><div class="sv dv-s2">${p.l2||0}</div></div>
+          <div class="sbox"><div class="sl">S3</div><div class="sv dv-s3">${p.l3||0}</div></div>
+          <div class="sbox"><div class="sl">S4</div><div class="sv dv-s4">${p.l4||0}</div></div>
+          <div class="sbox"><div class="sl">S5</div><div class="sv dv-s5">${p.l5||0}</div></div>
+        </div>
+      </div>
+    </div>`;
   }).join('');
 }
-function setFilter(f,btn){
-  currentFilter=f;
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderTable();
-}
-function sortTable(key){
-  if(sortKey===key){sortAsc=!sortAsc;}else{sortKey=key;sortAsc=key==='name';}
-  data.sort((a,b)=>{
-    const av=a[key],bv=b[key];
-    if(typeof av==='string')return sortAsc?av.localeCompare(bv):bv.localeCompare(av);
-    return sortAsc?av-bv:bv-av;
-  });
-  renderTable();
-}
-renderTable();
+function setF(f,btn){flt=f;openIdx=null;document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');render();}
+render();
 </script>
 </body>
 </html>
