@@ -33,12 +33,14 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Auto-Generator"
-          git add Canavar-List/**/index.html
+          git add Canavar-List/**/index.html Canavar-List/**/hunt_*.html Canavar-List/**/data.json
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
             git commit -m "🤖 Auto-generate HTML from data.json ($(date +'%d.%m.%Y %H:%M'))"
-            git push
+            git fetch origin main
+            git rebase origin/main || (git rebase --abort && echo "Rebase failed, attempting force push...") || true
+            git push origin main -v
           fi
       
       - name: Deploy to GitHub Pages
